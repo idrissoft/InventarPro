@@ -2,7 +2,7 @@
 
 Public Class Conection
     Protected con As New SqlConnection
-    Protected Function conectado()
+    Public Function conectado()
         Try
             con = New SqlConnection("server=DESKTOP-N0AAU33\SQLEXPRESS; database=InventarPro; integrated security=true")
             con.Open()

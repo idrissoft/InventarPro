@@ -1,8 +1,10 @@
-﻿Public Class productos
+﻿Imports System.Data.SqlClient
+
+Public Class productos
     Dim dt As DataTable
     Dim func As New Fproductos()
     Dim dts As New Vproductos()
-    'Dim Mid_productos As Integer
+
     Private Sub productos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         mostrar()
         CenterToParent()
@@ -71,5 +73,18 @@
         dts.gid_productos = DataGridView_prudoctos.SelectedCells.Item(0).Value
         func.eliminar_productos(dts)
         DataGridView_prudoctos.DataSource = func.mostrar_productos()
+    End Sub
+    Function buscar_productos()
+        Dim conn As New Conection()
+        Dim dt As New DataTable()
+        Dim con As SqlConnection = conn.conectado()
+        Dim da As New SqlDataAdapter("buscar_productos", con)
+        da.SelectCommand.CommandType = CommandType.StoredProcedure
+        da.SelectCommand.Parameters.AddWithValue("@letra", Buscar.Text)
+        da.Fill(dt)
+        Return dt
+    End Function
+    Private Sub Buscar_TextChanged(sender As Object, e As EventArgs) Handles Buscar.TextChanged
+        DataGridView_prudoctos.DataSource = buscar_productos()
     End Sub
 End Class

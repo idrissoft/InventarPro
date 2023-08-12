@@ -29,6 +29,9 @@ Partial Class productos
         Me.nuevo_productos = New System.Windows.Forms.Button()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Panel5 = New System.Windows.Forms.Panel()
+        Me.Buscar = New System.Windows.Forms.TextBox()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.DataGridView_prudoctos = New System.Windows.Forms.DataGridView()
@@ -47,9 +50,10 @@ Partial Class productos
         Me.id_productos = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.fechacreacion = New System.Windows.Forms.TextBox()
-        Me.Panel5 = New System.Windows.Forms.Panel()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
+        Me.Panel5.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel3.SuspendLayout()
         CType(Me.DataGridView_prudoctos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel11.SuspendLayout()
@@ -137,6 +141,34 @@ Partial Class productos
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(1790, 85)
         Me.Panel2.TabIndex = 1
+        '
+        'Panel5
+        '
+        Me.Panel5.Controls.Add(Me.Buscar)
+        Me.Panel5.Controls.Add(Me.PictureBox1)
+        Me.Panel5.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.Panel5.Location = New System.Drawing.Point(0, 53)
+        Me.Panel5.Name = "Panel5"
+        Me.Panel5.Size = New System.Drawing.Size(1790, 32)
+        Me.Panel5.TabIndex = 1
+        '
+        'Buscar
+        '
+        Me.Buscar.Location = New System.Drawing.Point(458, 3)
+        Me.Buscar.Multiline = True
+        Me.Buscar.Name = "Buscar"
+        Me.Buscar.Size = New System.Drawing.Size(386, 29)
+        Me.Buscar.TabIndex = 1
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
+        Me.PictureBox1.Location = New System.Drawing.Point(412, 0)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(40, 32)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox1.TabIndex = 0
+        Me.PictureBox1.TabStop = False
         '
         'Label1
         '
@@ -345,14 +377,6 @@ Partial Class productos
         Me.fechacreacion.Size = New System.Drawing.Size(173, 26)
         Me.fechacreacion.TabIndex = 0
         '
-        'Panel5
-        '
-        Me.Panel5.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel5.Location = New System.Drawing.Point(0, 53)
-        Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(1790, 32)
-        Me.Panel5.TabIndex = 1
-        '
         'productos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -368,6 +392,9 @@ Partial Class productos
         Me.Panel1.ResumeLayout(False)
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
+        Me.Panel5.ResumeLayout(False)
+        Me.Panel5.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel3.ResumeLayout(False)
         CType(Me.DataGridView_prudoctos, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel11.ResumeLayout(False)
@@ -401,4 +428,6 @@ Partial Class productos
     Friend WithEvents Guardar_cambios As Button
     Friend WithEvents DataGridView_prudoctos As DataGridView
     Friend WithEvents Panel5 As Panel
+    Friend WithEvents Buscar As TextBox
+    Friend WithEvents PictureBox1 As PictureBox
 End Class
