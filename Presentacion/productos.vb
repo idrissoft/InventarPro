@@ -74,17 +74,37 @@ Public Class productos
         func.eliminar_productos(dts)
         DataGridView_prudoctos.DataSource = func.mostrar_productos()
     End Sub
-    Function buscar_productos()
-        Dim conn As New Conection()
-        Dim dt As New DataTable()
-        Dim con As SqlConnection = conn.conectado()
-        Dim da As New SqlDataAdapter("buscar_productos", con)
-        da.SelectCommand.CommandType = CommandType.StoredProcedure
-        da.SelectCommand.Parameters.AddWithValue("@letra", Buscar.Text)
-        da.Fill(dt)
-        Return dt
-    End Function
+   private Sub buscar_productos()
+        Try
+            Dim conn As New Conection()
+            conn.conectado()
+            Dim dt As New DataTable()
+            Dim da As New SqlDataAdapter("buscar_productos", conn.con)
+            da.SelectCommand.CommandType = CommandType.StoredProcedure
+            da.SelectCommand.Parameters.AddWithValue("@letra", Buscar.Text)
+            da.Fill(dt)
+            DataGridView_prudoctos.DataSource = dt
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+    End Sub
     Private Sub Buscar_TextChanged(sender As Object, e As EventArgs) Handles Buscar.TextChanged
-        DataGridView_prudoctos.DataSource = buscar_productos()
+        buscar_productos()
+    End Sub
+
+    Private Sub Panel2_Paint(sender As Object, e As PaintEventArgs) Handles Panel2.Paint
+
+    End Sub
+
+    Private Sub Panel5_Paint(sender As Object, e As PaintEventArgs) Handles Panel5.Paint
+
+    End Sub
+
+    Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox1.Click
+
+    End Sub
+
+    Private Sub Panel4_Paint(sender As Object, e As PaintEventArgs) Handles Panel4.Paint
+
     End Sub
 End Class

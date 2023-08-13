@@ -1,7 +1,7 @@
 ﻿Imports System.Data.SqlClient
 
 Public Class Conection
-    Protected con As New SqlConnection
+    Public con As New SqlConnection
     Public Function conectado()
         Try
             con = New SqlConnection("server=DESKTOP-N0AAU33\SQLEXPRESS; database=InventarPro; integrated security=true")

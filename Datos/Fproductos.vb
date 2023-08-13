@@ -1,11 +1,8 @@
 ﻿
 Imports System.Data.SqlClient
-
-
 Public Class Fproductos
 
     Inherits Conection
-
     Function mostrar_productos()
         Try
             conectado()

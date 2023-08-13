@@ -71,12 +71,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Datos\Conection.vb" />
+    <Compile Include="Datos\Fclientes.vb" />
     <Compile Include="Datos\Fproductos.vb" />
+    <Compile Include="Logica\Vclientes.vb" />
     <Compile Include="Logica\Vproductos.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -87,6 +90,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Presentacion\Clientes.Designer.vb">
+      <DependentUpon>Clientes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\Clientes.vb">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Presentacion\productos.Designer.vb">
       <DependentUpon>productos.vb</DependentUpon>
@@ -101,6 +110,9 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\Clientes.resx">
+      <DependentUpon>Clientes.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\productos.resx">
       <DependentUpon>productos.vb</DependentUpon>
