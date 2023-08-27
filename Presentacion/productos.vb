@@ -1,15 +1,15 @@
 ﻿Imports System.Data.SqlClient
 
 Public Class productos
-    Dim dt As DataTable
-    Dim func As New Fproductos()
-    Dim dts As New Vproductos()
 
-    Private Sub productos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        mostrar()
+    ReadOnly func As New Fproductos()
+    ReadOnly dts As New Vproductos()
+
+    Private Sub Productos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Mostrar()
         CenterToParent()
     End Sub
-    Sub mostrar()
+    Sub Mostrar()
 
         DataGridView_prudoctos.DataSource = func.mostrar_productos()
     End Sub
@@ -53,7 +53,7 @@ Public Class productos
         mostrar()
     End Sub
 
-    Private Sub nuevo_productos_Click(sender As Object, e As EventArgs) Handles nuevo_productos.Click
+    Private Sub Nuevo_productos_Click(sender As Object, e As EventArgs) Handles nuevo_productos.Click
         Panel11.Visible = True
         Guardar_cambios.Visible = False
         Guardar.Visible = True
@@ -65,16 +65,16 @@ Public Class productos
         fechacreacion.Text = ""
     End Sub
 
-    Private Sub editar_productos_Click(sender As Object, e As EventArgs) Handles editar_productos.Click
+    Private Sub Editar_productos_Click(sender As Object, e As EventArgs) Handles editar_productos.Click
         Panel11.Visible = True
     End Sub
     Public Mid_productos As String
-    Public Sub eliminar_productos_Click(sender As Object, e As EventArgs) Handles eliminar_productos.Click
+    Public Sub Eliminar_productos_Click(sender As Object, e As EventArgs) Handles eliminar_productos.Click
         dts.gid_productos = DataGridView_prudoctos.SelectedCells.Item(0).Value
-        func.eliminar_productos(dts)
+        func.Eliminar_productos(dts)
         DataGridView_prudoctos.DataSource = func.mostrar_productos()
     End Sub
-   private Sub buscar_productos()
+    Private Sub Buscar_productos()
         Try
             Dim conn As New Conection()
             conn.conectado()

@@ -2,7 +2,7 @@
 
 Public Class Conection
     Public con As New SqlConnection
-    Public Function conectado()
+    Public Function Conectado()
         Try
             con = New SqlConnection("server=DESKTOP-N0AAU33\SQLEXPRESS; database=InventarPro; integrated security=true")
             con.Open()
@@ -12,7 +12,7 @@ Public Class Conection
             Return False
         End Try
     End Function
-    Protected Function desconectado()
+    Protected Function Desconectado()
         Try
             If con.State = ConnectionState.Open Then
                 con.Close()

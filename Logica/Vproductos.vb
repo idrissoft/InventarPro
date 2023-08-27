@@ -7,7 +7,7 @@ Public Class Vproductos
 
     Dim nombre, description, FechaCreacion As String
 
-    Public Property gid_productos As Integer
+    Public Property Gid_productos As Integer
         Get
             Return id_productos
         End Get
@@ -15,7 +15,7 @@ Public Class Vproductos
             id_productos = value
         End Set
     End Property
-    Public Property gcantidad
+    Public Property Gcantidad
         Get
             Return Cantidad
         End Get
@@ -23,7 +23,7 @@ Public Class Vproductos
             Cantidad = value
         End Set
     End Property
-    Public Property gprecio
+    Public Property Gprecio
         Get
             Return Precio
         End Get
@@ -65,8 +65,8 @@ Public Class Vproductos
         Gdescription = description
         GFechaCreacion = FechaCreacion
     End Sub
-    Public Sub New(dataGridView As Object)
-        Dim DataGridView_prudoctos As Object
-        DataGridView_prudoctos = dataGridView
-    End Sub
+    'Public Sub New(dataGridView As Object)
+    '    Dim DataGridView_prudoctos As Object
+    '    DataGridView_prudoctos = dataGridView
+    'End Sub
 End Class

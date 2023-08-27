@@ -4,7 +4,7 @@ Public Class Vclientes
     Dim idcliente, Telefono As Integer
     Dim Nombre, Email, Direccion, FechaRegistro, Estado As String
 
-    Property gidcliente As Integer
+    Property Gidcliente As Integer
         Get
             Return idcliente
         End Get
@@ -12,7 +12,7 @@ Public Class Vclientes
             idcliente = value
         End Set
     End Property
-    Property gNombre As String
+    Property GNombre As String
         Get
             Return Nombre
         End Get
@@ -20,7 +20,7 @@ Public Class Vclientes
             Nombre = value
         End Set
     End Property
-    Property gEmail As String
+    Property GEmail As String
         Get
             Return Email
         End Get
@@ -28,7 +28,7 @@ Public Class Vclientes
             Email = value
         End Set
     End Property
-    Property gTelefono As String
+    Property GTelefono As String
         Get
             Return Telefono
         End Get
@@ -36,7 +36,7 @@ Public Class Vclientes
             Telefono = value
         End Set
     End Property
-    Property gDireccion As String
+    Property GDireccion As String
         Get
             Return Direccion
         End Get
@@ -44,7 +44,7 @@ Public Class Vclientes
             Direccion = value
         End Set
     End Property
-    Property gFechaRegistro As String
+    Property GFechaRegistro As String
         Get
             Return FechaRegistro
         End Get
@@ -52,7 +52,7 @@ Public Class Vclientes
             FechaRegistro = value
         End Set
     End Property
-    Property gestado As String
+    Property Gestado As String
         Get
             Return Estado
         End Get
@@ -69,9 +69,9 @@ Public Class Vclientes
         gFechaRegistro = FechaRegistro
         gestado = Estado
     End Sub
-    Public Sub New(dataGridView As Object)
-        Dim DataGridView_clientes As Object
-        DataGridView_clientes = dataGridView
-    End Sub
+    'Public Sub New(dataGridView As Object)
+    '    Dim DataGridView_clientes As Object
+    '    DataGridView_clientes = dataGridView
+    'End Sub
 
 End Class
