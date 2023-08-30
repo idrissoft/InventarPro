@@ -1,6 +1,7 @@
 ﻿Imports System.Data.SqlClient
 Public Class Fventas
     Inherits Conection
+
     Function mostrar_ventas()
         Try
             Conectado()

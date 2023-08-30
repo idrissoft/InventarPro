@@ -30,7 +30,7 @@ Partial Class Ventas
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.ComboBox3 = New System.Windows.Forms.ComboBox()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.ComboBox4 = New System.Windows.Forms.ComboBox()
+        Me.ComboBox_clientes = New System.Windows.Forms.ComboBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.ComboBox5 = New System.Windows.Forms.ComboBox()
         Me.Label8 = New System.Windows.Forms.Label()
@@ -41,12 +41,12 @@ Partial Class Ventas
         Me.ListBox1 = New System.Windows.Forms.ListBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.ListBox2 = New System.Windows.Forms.ListBox()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.TextBox4 = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.TextBox5 = New System.Windows.Forms.TextBox()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
@@ -122,13 +122,13 @@ Partial Class Ventas
         Me.Label4.TabIndex = 17
         Me.Label4.Text = "Unidad de Venta:"
         '
-        'ComboBox4
+        'ComboBox_clientes
         '
-        Me.ComboBox4.FormattingEnabled = True
-        Me.ComboBox4.Location = New System.Drawing.Point(788, 94)
-        Me.ComboBox4.Name = "ComboBox4"
-        Me.ComboBox4.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox4.TabIndex = 16
+        Me.ComboBox_clientes.FormattingEnabled = True
+        Me.ComboBox_clientes.Location = New System.Drawing.Point(788, 94)
+        Me.ComboBox_clientes.Name = "ComboBox_clientes"
+        Me.ComboBox_clientes.Size = New System.Drawing.Size(121, 21)
+        Me.ComboBox_clientes.TabIndex = 16
         '
         'Label5
         '
@@ -225,6 +225,14 @@ Partial Class Ventas
         Me.Panel1.Size = New System.Drawing.Size(1142, 236)
         Me.Panel1.TabIndex = 29
         '
+        'DataGridView1
+        '
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Location = New System.Drawing.Point(0, 0)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.Size = New System.Drawing.Size(1139, 230)
+        Me.DataGridView1.TabIndex = 0
+        '
         'ListBox2
         '
         Me.ListBox2.ForeColor = System.Drawing.SystemColors.MenuText
@@ -264,14 +272,6 @@ Partial Class Ventas
         Me.TextBox5.Name = "TextBox5"
         Me.TextBox5.Size = New System.Drawing.Size(100, 20)
         Me.TextBox5.TabIndex = 33
-        '
-        'DataGridView1
-        '
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(0, 0)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(1139, 230)
-        Me.DataGridView1.TabIndex = 0
         '
         'PictureBox2
         '
@@ -342,7 +342,7 @@ Partial Class Ventas
         Me.Controls.Add(Me.ListBox1)
         Me.Controls.Add(Me.ComboBox3)
         Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.ComboBox4)
+        Me.Controls.Add(Me.ComboBox_clientes)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.ListBox2)
         Me.Controls.Add(Me.TextBox1)
@@ -369,7 +369,7 @@ Partial Class Ventas
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents ComboBox3 As ComboBox
     Friend WithEvents Label4 As Label
-    Friend WithEvents ComboBox4 As ComboBox
+    Friend WithEvents ComboBox_clientes As ComboBox
     Friend WithEvents Label5 As Label
     Friend WithEvents ComboBox5 As ComboBox
     Friend WithEvents Label8 As Label
