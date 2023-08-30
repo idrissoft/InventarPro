@@ -92,19 +92,5 @@ Public Class productos
         buscar_productos()
     End Sub
 
-    Private Sub Panel2_Paint(sender As Object, e As PaintEventArgs) Handles Panel2.Paint
 
-    End Sub
-
-    Private Sub Panel5_Paint(sender As Object, e As PaintEventArgs) Handles Panel5.Paint
-
-    End Sub
-
-    Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox1.Click
-
-    End Sub
-
-    Private Sub Panel4_Paint(sender As Object, e As PaintEventArgs) Handles Panel4.Paint
-
-    End Sub
 End Class

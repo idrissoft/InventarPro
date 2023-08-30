@@ -11,8 +11,9 @@
     <AssemblyName>InventarPro</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -23,6 +24,7 @@
     <OutputPath>bin\Debug\</OutputPath>
     <DocumentationFile>InventarPro.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,6 +35,7 @@
     <OutputPath>bin\Release\</OutputPath>
     <DocumentationFile>InventarPro.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
     <OptionExplicit>On</OptionExplicit>
@@ -73,8 +76,10 @@
     <Compile Include="Datos\Conection.vb" />
     <Compile Include="Datos\Fclientes.vb" />
     <Compile Include="Datos\Fproductos.vb" />
+    <Compile Include="Datos\Fventas.vb" />
     <Compile Include="Logica\Vclientes.vb" />
     <Compile Include="Logica\Vproductos.vb" />
+    <Compile Include="Logica\Vventas.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -109,10 +114,10 @@
     <Compile Include="Presentacion\productos.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Ventas.Designer.vb">
+    <Compile Include="Presentacion\Ventas.Designer.vb">
       <DependentUpon>Ventas.vb</DependentUpon>
     </Compile>
-    <Compile Include="Ventas.vb">
+    <Compile Include="Presentacion\Ventas.vb">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
@@ -132,11 +137,12 @@
     <EmbeddedResource Include="Presentacion\productos.resx">
       <DependentUpon>productos.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Ventas.resx">
+    <EmbeddedResource Include="Presentacion\Ventas.resx">
       <DependentUpon>Ventas.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>

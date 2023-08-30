@@ -35,35 +35,37 @@ Partial Class inicio
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ClientesToolStripMenuItem, Me.ProductosToolStripMenuItem, Me.VentasToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(800, 28)
+        Me.MenuStrip1.Padding = New System.Windows.Forms.Padding(4, 2, 0, 2)
+        Me.MenuStrip1.Size = New System.Drawing.Size(1461, 24)
         Me.MenuStrip1.TabIndex = 0
         Me.MenuStrip1.Text = "MenuStrip1"
         '
         'ClientesToolStripMenuItem
         '
         Me.ClientesToolStripMenuItem.Name = "ClientesToolStripMenuItem"
-        Me.ClientesToolStripMenuItem.Size = New System.Drawing.Size(79, 24)
+        Me.ClientesToolStripMenuItem.Size = New System.Drawing.Size(64, 20)
         Me.ClientesToolStripMenuItem.Text = "Clientes "
         '
         'ProductosToolStripMenuItem
         '
         Me.ProductosToolStripMenuItem.Name = "ProductosToolStripMenuItem"
-        Me.ProductosToolStripMenuItem.Size = New System.Drawing.Size(89, 24)
+        Me.ProductosToolStripMenuItem.Size = New System.Drawing.Size(73, 20)
         Me.ProductosToolStripMenuItem.Text = "Productos"
         '
         'VentasToolStripMenuItem
         '
         Me.VentasToolStripMenuItem.Name = "VentasToolStripMenuItem"
-        Me.VentasToolStripMenuItem.Size = New System.Drawing.Size(66, 24)
+        Me.VentasToolStripMenuItem.Size = New System.Drawing.Size(53, 20)
         Me.VentasToolStripMenuItem.Text = "Ventas"
         '
         'inicio
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(1461, 832)
         Me.Controls.Add(Me.MenuStrip1)
         Me.MainMenuStrip = Me.MenuStrip1
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "inicio"
         Me.Text = "inicio"
         Me.MenuStrip1.ResumeLayout(False)
