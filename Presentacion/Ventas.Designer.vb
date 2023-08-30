@@ -35,7 +35,6 @@ Partial Class Ventas
         Me.ComboBox5 = New System.Windows.Forms.ComboBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.ListBox1 = New System.Windows.Forms.ListBox()
@@ -52,6 +51,7 @@ Partial Class Ventas
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.Combo_productos = New System.Windows.Forms.ComboBox()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -167,14 +167,6 @@ Partial Class Ventas
         Me.Label9.Size = New System.Drawing.Size(38, 13)
         Me.Label9.TabIndex = 24
         Me.Label9.Text = "Stock:"
-        '
-        'TextBox3
-        '
-        Me.TextBox3.Location = New System.Drawing.Point(405, 263)
-        Me.TextBox3.Multiline = True
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(114, 23)
-        Me.TextBox3.TabIndex = 23
         '
         'Label10
         '
@@ -317,11 +309,20 @@ Partial Class Ventas
         Me.Button1.Text = "Crear Venta"
         Me.Button1.UseVisualStyleBackColor = True
         '
+        'Combo_productos
+        '
+        Me.Combo_productos.FormattingEnabled = True
+        Me.Combo_productos.Location = New System.Drawing.Point(382, 266)
+        Me.Combo_productos.Name = "Combo_productos"
+        Me.Combo_productos.Size = New System.Drawing.Size(121, 21)
+        Me.Combo_productos.TabIndex = 39
+        '
         'Ventas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1308, 803)
+        Me.Controls.Add(Me.Combo_productos)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.Label6)
@@ -336,7 +337,6 @@ Partial Class Ventas
         Me.Controls.Add(Me.ComboBox5)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.Label9)
-        Me.Controls.Add(Me.TextBox3)
         Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.Label11)
         Me.Controls.Add(Me.ListBox1)
@@ -374,7 +374,6 @@ Partial Class Ventas
     Friend WithEvents ComboBox5 As ComboBox
     Friend WithEvents Label8 As Label
     Friend WithEvents Label9 As Label
-    Friend WithEvents TextBox3 As TextBox
     Friend WithEvents Label10 As Label
     Friend WithEvents Label11 As Label
     Friend WithEvents ListBox1 As ListBox
@@ -391,4 +390,5 @@ Partial Class Ventas
     Friend WithEvents Label6 As Label
     Friend WithEvents Label7 As Label
     Friend WithEvents Button1 As Button
+    Friend WithEvents Combo_productos As ComboBox
 End Class

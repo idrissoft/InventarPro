@@ -8,11 +8,12 @@ Public Class Ventas
         DataGridView1.DataSource = func_venta.mostrar_ventas
         Dim func_cliente As New Fclientes
         CargarClientes()
+        cargar_productos()
     End Sub
 
-    Sub CargarClientes()
+    Private Sub CargarClientes()
 
-
+        c.Conectado()
         Dim query As String = "SELECT Nombre FROM Clientes"
         Dim cmd As New SqlCommand(query, c.con)
 
@@ -27,5 +28,19 @@ Public Class Ventas
 
     End Sub
 
+    Private Sub cargar_productos()
+        c.Conectado()
+        Dim query As String = "SELECT nombre FROM Productos"
+        Dim cmd As New SqlCommand(query, c.con)
+
+        Dim reader As SqlDataReader = cmd.ExecuteReader()
+        Combo_productos.Items.Clear()
+
+        While reader.Read()
+            Combo_productos.Items.Add(reader("nombre").ToString())
+        End While
+
+        reader.Close()
+    End Sub
 
 End Class
