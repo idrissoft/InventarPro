@@ -28,11 +28,9 @@ Partial Class Ventas
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.ComboBox3 = New System.Windows.Forms.ComboBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.ComboBox_clientes = New System.Windows.Forms.ComboBox()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.ComboBox5 = New System.Windows.Forms.ComboBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
@@ -40,22 +38,29 @@ Partial Class Ventas
         Me.ListBox1 = New System.Windows.Forms.ListBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.DataGridView_ventas = New System.Windows.Forms.DataGridView()
         Me.ListBox2 = New System.Windows.Forms.ListBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
+        Me.Txt_stock_acual = New System.Windows.Forms.TextBox()
+        Me.Txt_id_productos = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.TextBox5 = New System.Windows.Forms.TextBox()
+        Me.Txt_PrecioUnitario = New System.Windows.Forms.TextBox()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Combo_productos = New System.Windows.Forms.ComboBox()
+        Me.Txt_telefono = New System.Windows.Forms.TextBox()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.Txt_direccion = New System.Windows.Forms.TextBox()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.Txt_cliente = New System.Windows.Forms.TextBox()
+        Me.txtcantidad = New System.Windows.Forms.NumericUpDown()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridView_ventas, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtcantidad, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'ListBox
@@ -101,26 +106,18 @@ Partial Class Ventas
         Me.TextBox1.Location = New System.Drawing.Point(410, 80)
         Me.TextBox1.Multiline = True
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(183, 84)
+        Me.TextBox1.Size = New System.Drawing.Size(183, 34)
         Me.TextBox1.TabIndex = 5
-        '
-        'ComboBox3
-        '
-        Me.ComboBox3.FormattingEnabled = True
-        Me.ComboBox3.Location = New System.Drawing.Point(1041, 97)
-        Me.ComboBox3.Name = "ComboBox3"
-        Me.ComboBox3.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox3.TabIndex = 18
         '
         'Label4
         '
         Me.Label4.AutoSize = True
         Me.Label4.ForeColor = System.Drawing.SystemColors.Highlight
-        Me.Label4.Location = New System.Drawing.Point(945, 97)
+        Me.Label4.Location = New System.Drawing.Point(936, 94)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(90, 13)
+        Me.Label4.Size = New System.Drawing.Size(56, 13)
         Me.Label4.TabIndex = 17
-        Me.Label4.Text = "Unidad de Venta:"
+        Me.Label4.Text = "ID_Cliente"
         '
         'ComboBox_clientes
         '
@@ -134,19 +131,11 @@ Partial Class Ventas
         '
         Me.Label5.AutoSize = True
         Me.Label5.ForeColor = System.Drawing.SystemColors.Highlight
-        Me.Label5.Location = New System.Drawing.Point(719, 97)
+        Me.Label5.Location = New System.Drawing.Point(692, 94)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(42, 13)
         Me.Label5.TabIndex = 15
         Me.Label5.Text = "Cliente:"
-        '
-        'ComboBox5
-        '
-        Me.ComboBox5.FormattingEnabled = True
-        Me.ComboBox5.Location = New System.Drawing.Point(405, 323)
-        Me.ComboBox5.Name = "ComboBox5"
-        Me.ComboBox5.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox5.TabIndex = 27
         '
         'Label8
         '
@@ -154,9 +143,9 @@ Partial Class Ventas
         Me.Label8.ForeColor = System.Drawing.SystemColors.Highlight
         Me.Label8.Location = New System.Drawing.Point(309, 325)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(90, 13)
+        Me.Label8.Size = New System.Drawing.Size(98, 13)
         Me.Label8.TabIndex = 26
-        Me.Label8.Text = "Unidad de Venta:"
+        Me.Label8.Text = "Cantidad de Venta:"
         '
         'Label9
         '
@@ -211,19 +200,20 @@ Partial Class Ventas
         '
         'Panel1
         '
-        Me.Panel1.Controls.Add(Me.DataGridView1)
+        Me.Panel1.Controls.Add(Me.DataGridView_ventas)
         Me.Panel1.Location = New System.Drawing.Point(34, 463)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(1142, 236)
         Me.Panel1.TabIndex = 29
         '
-        'DataGridView1
+        'DataGridView_ventas
         '
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(0, 0)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(1139, 230)
-        Me.DataGridView1.TabIndex = 0
+        Me.DataGridView_ventas.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuBar
+        Me.DataGridView_ventas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView_ventas.Location = New System.Drawing.Point(0, 0)
+        Me.DataGridView_ventas.Name = "DataGridView_ventas"
+        Me.DataGridView_ventas.Size = New System.Drawing.Size(1139, 230)
+        Me.DataGridView_ventas.TabIndex = 0
         '
         'ListBox2
         '
@@ -234,19 +224,19 @@ Partial Class Ventas
         Me.ListBox2.Size = New System.Drawing.Size(602, 160)
         Me.ListBox2.TabIndex = 10
         '
-        'TextBox2
+        'Txt_stock_acual
         '
-        Me.TextBox2.Location = New System.Drawing.Point(164, 316)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(122, 20)
-        Me.TextBox2.TabIndex = 30
+        Me.Txt_stock_acual.Location = New System.Drawing.Point(164, 316)
+        Me.Txt_stock_acual.Name = "Txt_stock_acual"
+        Me.Txt_stock_acual.Size = New System.Drawing.Size(122, 20)
+        Me.Txt_stock_acual.TabIndex = 30
         '
-        'TextBox4
+        'Txt_id_productos
         '
-        Me.TextBox4.Location = New System.Drawing.Point(164, 266)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(122, 20)
-        Me.TextBox4.TabIndex = 31
+        Me.Txt_id_productos.Location = New System.Drawing.Point(164, 266)
+        Me.Txt_id_productos.Name = "Txt_id_productos"
+        Me.Txt_id_productos.Size = New System.Drawing.Size(122, 20)
+        Me.Txt_id_productos.TabIndex = 31
         '
         'Label2
         '
@@ -258,12 +248,12 @@ Partial Class Ventas
         Me.Label2.TabIndex = 32
         Me.Label2.Text = "Precio:"
         '
-        'TextBox5
+        'Txt_PrecioUnitario
         '
-        Me.TextBox5.Location = New System.Drawing.Point(611, 266)
-        Me.TextBox5.Name = "TextBox5"
-        Me.TextBox5.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox5.TabIndex = 33
+        Me.Txt_PrecioUnitario.Location = New System.Drawing.Point(611, 266)
+        Me.Txt_PrecioUnitario.Name = "Txt_PrecioUnitario"
+        Me.Txt_PrecioUnitario.Size = New System.Drawing.Size(100, 20)
+        Me.Txt_PrecioUnitario.TabIndex = 33
         '
         'PictureBox2
         '
@@ -312,35 +302,92 @@ Partial Class Ventas
         'Combo_productos
         '
         Me.Combo_productos.FormattingEnabled = True
-        Me.Combo_productos.Location = New System.Drawing.Point(382, 266)
+        Me.Combo_productos.Location = New System.Drawing.Point(405, 266)
         Me.Combo_productos.Name = "Combo_productos"
         Me.Combo_productos.Size = New System.Drawing.Size(121, 21)
         Me.Combo_productos.TabIndex = 39
+        '
+        'Txt_telefono
+        '
+        Me.Txt_telefono.Location = New System.Drawing.Point(788, 144)
+        Me.Txt_telefono.Name = "Txt_telefono"
+        Me.Txt_telefono.Size = New System.Drawing.Size(122, 20)
+        Me.Txt_telefono.TabIndex = 41
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label12.ForeColor = System.Drawing.SystemColors.Highlight
+        Me.Label12.Location = New System.Drawing.Point(692, 144)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(58, 15)
+        Me.Label12.TabIndex = 40
+        Me.Label12.Text = "Telefono:"
+        '
+        'Txt_direccion
+        '
+        Me.Txt_direccion.Location = New System.Drawing.Point(1041, 144)
+        Me.Txt_direccion.Name = "Txt_direccion"
+        Me.Txt_direccion.Size = New System.Drawing.Size(122, 20)
+        Me.Txt_direccion.TabIndex = 43
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label13.ForeColor = System.Drawing.SystemColors.Highlight
+        Me.Label13.Location = New System.Drawing.Point(936, 144)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(62, 15)
+        Me.Label13.TabIndex = 42
+        Me.Label13.Text = "Direccion:"
+        '
+        'Txt_cliente
+        '
+        Me.Txt_cliente.Location = New System.Drawing.Point(1041, 94)
+        Me.Txt_cliente.Name = "Txt_cliente"
+        Me.Txt_cliente.Size = New System.Drawing.Size(122, 20)
+        Me.Txt_cliente.TabIndex = 44
+        '
+        'txtcantidad
+        '
+        Me.txtcantidad.Location = New System.Drawing.Point(422, 321)
+        Me.txtcantidad.Maximum = New Decimal(New Integer() {100000, 0, 0, 0})
+        Me.txtcantidad.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
+        Me.txtcantidad.Name = "txtcantidad"
+        Me.txtcantidad.Size = New System.Drawing.Size(39, 20)
+        Me.txtcantidad.TabIndex = 45
+        Me.txtcantidad.Value = New Decimal(New Integer() {1, 0, 0, 0})
         '
         'Ventas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1308, 803)
+        Me.Controls.Add(Me.txtcantidad)
+        Me.Controls.Add(Me.Txt_cliente)
+        Me.Controls.Add(Me.Txt_direccion)
+        Me.Controls.Add(Me.Label13)
+        Me.Controls.Add(Me.Txt_telefono)
+        Me.Controls.Add(Me.Label12)
         Me.Controls.Add(Me.Combo_productos)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.PictureBox2)
-        Me.Controls.Add(Me.TextBox5)
+        Me.Controls.Add(Me.Txt_PrecioUnitario)
         Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.TextBox4)
-        Me.Controls.Add(Me.TextBox2)
+        Me.Controls.Add(Me.Txt_id_productos)
+        Me.Controls.Add(Me.Txt_stock_acual)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.PictureBox1)
-        Me.Controls.Add(Me.ComboBox5)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.Label11)
         Me.Controls.Add(Me.ListBox1)
-        Me.Controls.Add(Me.ComboBox3)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.ComboBox_clientes)
         Me.Controls.Add(Me.Label5)
@@ -355,8 +402,9 @@ Partial Class Ventas
         Me.Text = "Ventas"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridView_ventas, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtcantidad, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -367,11 +415,9 @@ Partial Class Ventas
     Friend WithEvents DateTimePicker1 As DateTimePicker
     Friend WithEvents Label1 As Label
     Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents ComboBox3 As ComboBox
     Friend WithEvents Label4 As Label
     Friend WithEvents ComboBox_clientes As ComboBox
     Friend WithEvents Label5 As Label
-    Friend WithEvents ComboBox5 As ComboBox
     Friend WithEvents Label8 As Label
     Friend WithEvents Label9 As Label
     Friend WithEvents Label10 As Label
@@ -380,15 +426,21 @@ Partial Class Ventas
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents Panel1 As Panel
     Friend WithEvents ListBox2 As ListBox
-    Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents TextBox4 As TextBox
-    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents Txt_stock_acual As TextBox
+    Friend WithEvents Txt_id_productos As TextBox
+    Friend WithEvents DataGridView_ventas As DataGridView
     Friend WithEvents Label2 As Label
-    Friend WithEvents TextBox5 As TextBox
+    Friend WithEvents Txt_PrecioUnitario As TextBox
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents Label3 As Label
     Friend WithEvents Label6 As Label
     Friend WithEvents Label7 As Label
     Friend WithEvents Button1 As Button
     Friend WithEvents Combo_productos As ComboBox
+    Friend WithEvents Txt_telefono As TextBox
+    Friend WithEvents Label12 As Label
+    Friend WithEvents Txt_direccion As TextBox
+    Friend WithEvents Label13 As Label
+    Friend WithEvents Txt_cliente As TextBox
+    Friend WithEvents txtcantidad As NumericUpDown
 End Class

@@ -4,7 +4,7 @@ Public Class Vproductos
     Dim id_productos As Integer
     Dim Cantidad As Integer
     Dim Precio As Integer
-
+    Dim Stock_Actual As Integer
     Dim nombre, description, FechaCreacion As String
 
     Public Property Gid_productos As Integer
@@ -57,6 +57,14 @@ Public Class Vproductos
             FechaCreacion = value
         End Set
     End Property
+    Property GStock_Actual
+        Get
+            Return Stock_Actual
+        End Get
+        Set(value)
+            Stock_Actual = value
+        End Set
+    End Property
     Public Sub New()
         gid_productos = id_productos
         gcantidad = Cantidad
@@ -64,6 +72,7 @@ Public Class Vproductos
         Gnombre = nombre
         Gdescription = description
         GFechaCreacion = FechaCreacion
+        GStock_Actual = Stock_Actual
     End Sub
     'Public Sub New(dataGridView As Object)
     '    Dim DataGridView_prudoctos As Object
