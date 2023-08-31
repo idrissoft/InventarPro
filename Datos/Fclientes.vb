@@ -2,7 +2,7 @@
 Public Class Fclientes
     Inherits Conection
 
-    Public Function Mostrar_clieintes()
+    Public Function Mostrar_clientes()
         Dim dt As New DataTable()
         Dim cmd As New SqlCommand("select * from clientes", con)
         Conectado()

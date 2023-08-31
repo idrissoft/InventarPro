@@ -79,4 +79,14 @@ Public Class Ventas
             reader.Close()
         End If
     End Sub
+
+    Private Sub Btn_crear_venta_Click(sender As Object, e As EventArgs) Handles Btn_crear_venta.Click
+        Dim dts1 As New Vventas()
+        Dim fun As New Fventas()
+        dts1.GFecha_venta = DateTimePicker1.Value
+        dts1.GID_cliente = Txt_cliente.Text
+        dts1.Gtotal = Txt_precio_total.Text
+        fun.Add_venta(dts1)
+        fun.mostrar_ventas()
+    End Sub
 End Class

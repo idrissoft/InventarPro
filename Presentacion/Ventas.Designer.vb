@@ -48,7 +48,7 @@ Partial Class Ventas
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Btn_crear_venta = New System.Windows.Forms.Button()
         Me.Combo_productos = New System.Windows.Forms.ComboBox()
         Me.Txt_telefono = New System.Windows.Forms.TextBox()
         Me.Label12 = New System.Windows.Forms.Label()
@@ -56,6 +56,8 @@ Partial Class Ventas
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Txt_cliente = New System.Windows.Forms.TextBox()
         Me.txtcantidad = New System.Windows.Forms.NumericUpDown()
+        Me.Txt_precio_total = New System.Windows.Forms.TextBox()
+        Me.Label14 = New System.Windows.Forms.Label()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.DataGridView_ventas, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -290,14 +292,14 @@ Partial Class Ventas
         Me.Label7.TabIndex = 37
         Me.Label7.Text = "Informacio de Productos"
         '
-        'Button1
+        'Btn_crear_venta
         '
-        Me.Button1.Location = New System.Drawing.Point(1193, 663)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(103, 36)
-        Me.Button1.TabIndex = 38
-        Me.Button1.Text = "Crear Venta"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.Btn_crear_venta.Location = New System.Drawing.Point(1193, 663)
+        Me.Btn_crear_venta.Name = "Btn_crear_venta"
+        Me.Btn_crear_venta.Size = New System.Drawing.Size(103, 36)
+        Me.Btn_crear_venta.TabIndex = 38
+        Me.Btn_crear_venta.Text = "Crear Venta"
+        Me.Btn_crear_venta.UseVisualStyleBackColor = True
         '
         'Combo_productos
         '
@@ -360,11 +362,30 @@ Partial Class Ventas
         Me.txtcantidad.TabIndex = 45
         Me.txtcantidad.Value = New Decimal(New Integer() {1, 0, 0, 0})
         '
+        'Txt_precio_total
+        '
+        Me.Txt_precio_total.Location = New System.Drawing.Point(611, 325)
+        Me.Txt_precio_total.Name = "Txt_precio_total"
+        Me.Txt_precio_total.Size = New System.Drawing.Size(100, 20)
+        Me.Txt_precio_total.TabIndex = 47
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.ForeColor = System.Drawing.SystemColors.Highlight
+        Me.Label14.Location = New System.Drawing.Point(538, 328)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(67, 13)
+        Me.Label14.TabIndex = 46
+        Me.Label14.Text = "Precio Total:"
+        '
         'Ventas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1308, 803)
+        Me.Controls.Add(Me.Txt_precio_total)
+        Me.Controls.Add(Me.Label14)
         Me.Controls.Add(Me.txtcantidad)
         Me.Controls.Add(Me.Txt_cliente)
         Me.Controls.Add(Me.Txt_direccion)
@@ -372,7 +393,7 @@ Partial Class Ventas
         Me.Controls.Add(Me.Txt_telefono)
         Me.Controls.Add(Me.Label12)
         Me.Controls.Add(Me.Combo_productos)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.Btn_crear_venta)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Label3)
@@ -435,7 +456,7 @@ Partial Class Ventas
     Friend WithEvents Label3 As Label
     Friend WithEvents Label6 As Label
     Friend WithEvents Label7 As Label
-    Friend WithEvents Button1 As Button
+    Friend WithEvents Btn_crear_venta As Button
     Friend WithEvents Combo_productos As ComboBox
     Friend WithEvents Txt_telefono As TextBox
     Friend WithEvents Label12 As Label
@@ -443,4 +464,6 @@ Partial Class Ventas
     Friend WithEvents Label13 As Label
     Friend WithEvents Txt_cliente As TextBox
     Friend WithEvents txtcantidad As NumericUpDown
+    Friend WithEvents Txt_precio_total As TextBox
+    Friend WithEvents Label14 As Label
 End Class

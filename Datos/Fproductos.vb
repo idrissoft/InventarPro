@@ -28,9 +28,7 @@ Public Class Fproductos
     Function Add_productos(ByVal dts As Vproductos)
         Try
             conectado()
-            Dim cmd As New SqlCommand("insertar_productos ") With {
-            .CommandType = CommandType.StoredProcedure,
-            .Connection = con}
+            Dim cmd As New SqlCommand("insertar_productos ") With {.CommandType = CommandType.StoredProcedure, .Connection = con}
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = con
             cmd.Parameters.AddWithValue("@nombre", dts.Gnombre)

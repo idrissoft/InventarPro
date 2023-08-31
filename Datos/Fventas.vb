@@ -23,5 +23,24 @@ Public Class Fventas
             Desconectado()
         End Try
     End Function
+    Function Add_venta(ByVal dts As Vventas)
+        Try
+            Conectado()
+            Dim cmd As New SqlCommand("insertar_venta ") With {.CommandType = CommandType.StoredProcedure, .Connection = con}
+            cmd.CommandType = CommandType.StoredProcedure
+            cmd.Connection = con
 
+            cmd.Parameters.AddWithValue("@Fecha_venta", dts.GFecha_venta)
+            cmd.Parameters.AddWithValue("@ID_Cliente", dts.GID_cliente)
+            cmd.Parameters.AddWithValue("@total", dts.Gtotal)
+
+            Dim executeNonQuery As Integer = cmd.ExecuteNonQuery
+            Return executeNonQuery
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Return False
+        Finally
+            Desconectado()
+        End Try
+    End Function
 End Class
