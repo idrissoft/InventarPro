@@ -77,6 +77,7 @@
     <Compile Include="Datos\Fclientes.vb" />
     <Compile Include="Datos\Fproductos.vb" />
     <Compile Include="Datos\Fventas.vb" />
+    <Compile Include="Logica\vdetalle_de_ventas.vb" />
     <Compile Include="Logica\Vclientes.vb" />
     <Compile Include="Logica\Vproductos.vb" />
     <Compile Include="Logica\Vventas.vb" />

@@ -72,21 +72,38 @@ Public Class Ventas
             reader.Read()
             Dim id_productos As Integer = Convert.ToInt32(reader("ID_productos"))
             Dim Precio_unitario As Integer = Convert.ToInt32(reader("Precio_unitario"))
-            'Dim Stock_Actual As Integer = Convert.ToInt32(reader("Stock_Actual "))
+            Dim Stock_Actual As Integer = Convert.ToInt32(reader("Stock_Actual"))
             Txt_id_productos.Text = id_productos
             Txt_PrecioUnitario.Text = Precio_unitario
-            'Txt_stock_acual.Text = Stock_Actual
+            Txt_stock_acual.Text = Stock_Actual
             reader.Close()
         End If
     End Sub
 
     Private Sub Btn_crear_venta_Click(sender As Object, e As EventArgs) Handles Btn_crear_venta.Click
         Dim dts1 As New Vventas()
+        Dim dt As New vdetalle_de_ventas()
         Dim fun As New Fventas()
         dts1.GFecha_venta = DateTimePicker1.Value
         dts1.GID_cliente = Txt_cliente.Text
         dts1.Gtotal = Txt_precio_total.Text
-        fun.Add_venta(dts1)
+        'dt.Gid_ventas =
+        dt.Gid_producto = Txt_id_productos.Text
+        dt.Gcantidad_ventas = CInt(txtcantidad.Value)
+        dt.Gprecio_unitario = Txt_PrecioUnitario.Text
+        dt.Gsubtotal = Txt_precio_total.Text
+        fun.Add_venta(dts1, dt)
         fun.mostrar_ventas()
+
+    End Sub
+
+    Private Sub agregar_venta_Click(sender As Object, e As EventArgs) Handles agregar_venta.Click
+        Dim Precio_unitario As Integer = Integer.Parse(Txt_PrecioUnitario.Text)
+        Dim cantidad As Integer = CInt(txtcantidad.Value)
+        Txt_precio_total.Text = Precio_unitario * cantidad
+    End Sub
+
+    Private Sub DataGridView_ventas_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView_ventas.CellContentClick
+        DataGridView_Detalle_Venta.DataSource = func_venta.mostrar_detalle_ventas()
     End Sub
 End Class

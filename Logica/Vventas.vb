@@ -1,5 +1,5 @@
 ﻿Public Class Vventas
-    Dim id_Ventas, ID_Cliente, Total As Integer
+    Public id_Ventas, ID_Cliente, Total As Integer
     Dim Fecha_venta As DateTime
     Property Gid_ventas As Integer
         Get
