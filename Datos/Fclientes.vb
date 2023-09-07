@@ -2,12 +2,14 @@
 Public Class Fclientes
     Inherits Conection
 
-    Public Function Mostrar_clientes()
+    Public Function Mostrar_clientes() As DataTable
         Dim dt As New DataTable()
-        Dim cmd As New SqlCommand("select * from clientes", con)
-        Conectado()
-        cmd.Connection = con
-        Dim da As New SqlDataAdapter(cmd)
+        Dim cmd As SqlCommand
+        Dim da As SqlDataAdapter
+
+        cmd = New SqlCommand("select * from clientes", GetConnection())
+
+        da = New SqlDataAdapter(cmd)
         da.Fill(dt)
         Return dt
     End Function

@@ -44,7 +44,7 @@ Partial Class Ventas
         Me.Txt_id_productos = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Txt_PrecioUnitario = New System.Windows.Forms.TextBox()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.imagen1 = New System.Windows.Forms.PictureBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
@@ -63,7 +63,7 @@ Partial Class Ventas
         CType(Me.agregar_venta, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.DataGridView_ventas, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.imagen1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtcantidad, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView_Detalle_Venta, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -260,13 +260,13 @@ Partial Class Ventas
         Me.Txt_PrecioUnitario.Size = New System.Drawing.Size(100, 20)
         Me.Txt_PrecioUnitario.TabIndex = 33
         '
-        'PictureBox2
+        'imagen1
         '
-        Me.PictureBox2.Location = New System.Drawing.Point(906, 263)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(200, 168)
-        Me.PictureBox2.TabIndex = 34
-        Me.PictureBox2.TabStop = False
+        Me.imagen1.Location = New System.Drawing.Point(906, 263)
+        Me.imagen1.Name = "imagen1"
+        Me.imagen1.Size = New System.Drawing.Size(200, 168)
+        Me.imagen1.TabIndex = 34
+        Me.imagen1.TabStop = False
         '
         'Label3
         '
@@ -419,7 +419,7 @@ Partial Class Ventas
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.PictureBox2)
+        Me.Controls.Add(Me.imagen1)
         Me.Controls.Add(Me.Txt_PrecioUnitario)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Txt_id_productos)
@@ -446,7 +446,7 @@ Partial Class Ventas
         CType(Me.agregar_venta, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         CType(Me.DataGridView_ventas, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.imagen1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtcantidad, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView_Detalle_Venta, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -475,7 +475,7 @@ Partial Class Ventas
     Friend WithEvents DataGridView_ventas As DataGridView
     Friend WithEvents Label2 As Label
     Friend WithEvents Txt_PrecioUnitario As TextBox
-    Friend WithEvents PictureBox2 As PictureBox
+    Friend WithEvents imagen1 As PictureBox
     Friend WithEvents Label3 As Label
     Friend WithEvents Label6 As Label
     Friend WithEvents Label7 As Label

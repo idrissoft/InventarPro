@@ -1,30 +1,32 @@
 ﻿Imports System.Data.SqlClient
+Imports System.Drawing.Text
 
-Public Class Conection
-    Public con As New SqlConnection
-    Public Function Conectado()
+Public MustInherit Class Conection
+    Private _connection As New SqlConnection
+    Friend Function GetConnection() As SqlConnection
         Try
-            con = New SqlConnection("server=MBWS093\SQLEXPRESS; database=InventarPro; integrated security=true")
-            con.Open()
-            Return True
+            _connection = New SqlConnection("server=MBWS093\SQLEXPRESS; database=InventarPro; integrated security=true")
+            _connection.Open()
+            Return _connection
         Catch ex As Exception
             MsgBox(ex.Message)
-            Return False
+            Return Nothing
         End Try
     End Function
-    Protected Function Desconectado()
-        Try
-            If con.State = ConnectionState.Open Then
-                con.Close()
+    Friend Function CloseConnection() As Boolean
+        Dim result As Boolean
 
-                Return True
-            Else
-                Return False
+        result = False
+        Try
+            If _connection.State <> ConnectionState.Closed Then
+                _connection.Close()
+                result = True
             End If
         Catch ex As Exception
             MsgBox(ex.Message)
-            Return False
         End Try
+
+        Return result
     End Function
 
 
