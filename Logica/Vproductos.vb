@@ -15,72 +15,72 @@ Public Class Vproductos
             id_productos = value
         End Set
     End Property
-    Public Property Gcantidad
+    Public Property Gcantidad As Integer
         Get
             Return Cantidad
         End Get
-        Set(value)
+        Set(value As Integer)
             Cantidad = value
         End Set
     End Property
-    Public Property Gprecio
+    Public Property Gprecio As Integer
         Get
             Return Precio
         End Get
-        Set(value)
+        Set(value As Integer)
             Precio = value
         End Set
     End Property
 
-    Public Property Gnombre
+    Public Property Gnombre As String
         Get
             Return nombre
         End Get
-        Set(value)
+        Set(value As String)
             nombre = value
         End Set
     End Property
-    Public Property Gdescription
+    Public Property Gdescription As String
         Get
             Return description
         End Get
-        Set(value)
+        Set(value As String)
             description = value
         End Set
     End Property
 
-    Public Property GFechaCreacion
+    Public Property GFechaCreacion As String
         Get
             Return FechaCreacion
         End Get
-        Set(value)
+        Set(value As String)
             FechaCreacion = value
         End Set
     End Property
-    Property GStock_Actual
+    Property GStock_Actual As Integer
         Get
             Return Stock_Actual
         End Get
-        Set(value)
+        Set(value As Integer)
             Stock_Actual = value
         End Set
     End Property
-    Property Gimagen
+    Property Gimagen As Object
         Get
             Return imagen
         End Get
-        Set(value)
-            imagen = value
+        Set(value As Object)
+            imagen = CByte(value)
         End Set
     End Property
-    Public Sub New()
-        gid_productos = id_productos
-        gcantidad = Cantidad
-        gprecio = Precio
-        Gnombre = nombre
-        Gdescription = description
-        GFechaCreacion = FechaCreacion
-        GStock_Actual = Stock_Actual
-    End Sub
+    'Public Sub New()
+    '    gid_productos = id_productos
+    '    gcantidad = Cantidad
+    '    gprecio = Precio
+    '    Gnombre = nombre
+    '    Gdescription = description
+    '    GFechaCreacion = FechaCreacion
+    '    GStock_Actual = Stock_Actual
+    'End Sub
 
 End Class

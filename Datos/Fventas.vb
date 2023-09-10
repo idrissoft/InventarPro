@@ -1,44 +1,44 @@
 ﻿Imports System.Data.SqlClient
-Imports System.Windows.Forms.VisualStyles.VisualStyleElement
+
 
 Public Class Fventas
 
     Inherits Conection
 
-    Function mostrar_ventas()
+    Function mostrar_ventas() As DataTable
+        Dim dt As New DataTable()
+        Dim da As New SqlDataAdapter
+        Dim cmd As New SqlCommand
         Try
-            GetConnection()
-            Dim cmd As New SqlCommand("mostrar_ventas")
-            cmd.CommandType = 4
-            cmd.Connection = Con
-            If cmd.ExecuteNonQuery Then
-                Dim dt As New DataTable
-                Dim da As New SqlDataAdapter(cmd)
-                da.Fill(dt)
-                Return dt
-            Else
-                Return Nothing
-            End If
+
+            cmd = New SqlCommand("mostrar_ventas") With {.CommandType = CommandType.StoredProcedure, .Connection = GetConnection()}
+            cmd.CommandType = CommandType.StoredProcedure
+            cmd.Connection = GetConnection()
+            da = New SqlDataAdapter(cmd)
+
+
+            da.Fill(dt)
+
+
         Catch ex As Exception
             MsgBox(ex.Message)
             Return Nothing
         Finally
             CloseConnection()
         End Try
+        Return dt
     End Function
     Sub Add_venta(ByVal dts As Vventas, dt As vdetalle_de_ventas)
-        'agregar nueva venta
-
         Try
             GetConnection()
-            Dim cmd As New SqlCommand("insertar_venta ") With {.CommandType = CommandType.StoredProcedure, .Connection = Con}
+            Dim cmd As New SqlCommand("insertar_venta ") With {.CommandType = CommandType.StoredProcedure, .Connection = GetConnection()}
             cmd.CommandType = CommandType.StoredProcedure
-            cmd.Connection = Con
+            cmd.Connection = GetConnection()
 
             cmd.Parameters.AddWithValue("@Fecha_venta", dts.GFecha_venta)
             cmd.Parameters.AddWithValue("@ID_Cliente", dts.GID_cliente)
             cmd.Parameters.AddWithValue("@total", dts.Gtotal)
-            dts.id_Ventas = cmd.ExecuteScalar()
+            dts.id_Ventas = Convert.ToInt32(cmd.ExecuteScalar())
 
         Catch ex As Exception
             MsgBox(ex.Message)
@@ -50,10 +50,10 @@ Public Class Fventas
 
         'agregar nueva detalle de venta
         Try
-            GetConnection()
-            Dim cmd1 As New SqlCommand("insertar_detalle_venta ") With {.CommandType = CommandType.StoredProcedure, .Connection = Con}
+
+            Dim cmd1 As New SqlCommand("insertar_detalle_venta ") With {.CommandType = CommandType.StoredProcedure, .Connection = GetConnection()}
             cmd1.CommandType = CommandType.StoredProcedure
-            cmd1.Connection = Con
+            cmd1.Connection = GetConnection()
 
             cmd1.Parameters.AddWithValue("@ID_Ventas", dts.id_Ventas)
             cmd1.Parameters.AddWithValue("@ID_Producto", dt.ID_Producto)
@@ -72,24 +72,17 @@ Public Class Fventas
     End Sub
 
     Function mostrar_detalle_ventas(ID_Ventas As Integer) As DataTable
+        Dim dt1 As New DataTable
+        Dim da As New SqlDataAdapter
         Try
             GetConnection()
             Dim cmd As New SqlCommand("mostrar_detalle_ventas")
             cmd.CommandType = CommandType.StoredProcedure
-            cmd.Connection = Con
-
-
+            cmd.Connection = GetConnection()
             cmd.Parameters.AddWithValue("@ID_Ventas", ID_Ventas)
-            If cmd.ExecuteNonQuery Then
-                Dim dt1 As New DataTable
-                Dim da As New SqlDataAdapter(cmd)
-                da.Fill(dt1)
-
-                Return dt1
-
-            Else
-                Return Nothing
-            End If
+            da = New SqlDataAdapter(cmd)
+            da.Fill(dt1)
+            Return dt1
         Catch ex As Exception
             MsgBox(ex.Message)
             Return Nothing

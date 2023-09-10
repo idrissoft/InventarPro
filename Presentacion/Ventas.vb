@@ -3,11 +3,11 @@ Imports System.Drawing.Imaging
 Imports System.IO
 
 Public Class Ventas
-    Dim func_venta As New Fventas
-    Dim c As New Conection
+    Dim _venta As New Fventas
+
     Private Sub Ventas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         CenterToParent()
-        DataGridView_ventas.DataSource = func_venta.mostrar_ventas
+        DataGridView_ventas.DataSource = _venta.mostrar_ventas
         Dim func_cliente As New Fclientes
         CargarClientes()
         cargar_productos()
@@ -15,9 +15,9 @@ Public Class Ventas
 
     Private Sub CargarClientes()
 
-        c.GetConnection()
+        _venta.GetConnection()
         Dim query As String = "SELECT Nombre FROM Clientes"
-        Dim cmd As New SqlCommand(query, c.Con)
+        Dim cmd As New SqlCommand(query, _venta.GetConnection())
 
         Dim reader As SqlDataReader = cmd.ExecuteReader()
         ComboBox_clientes.Items.Clear()
@@ -31,9 +31,9 @@ Public Class Ventas
     End Sub
 
     Private Sub cargar_productos()
-        c.GetConnection()
+
         Dim query As String = "SELECT nombre FROM Productos"
-        Dim cmd As New SqlCommand(query, c.Con)
+        Dim cmd As New SqlCommand(query, _venta.GetConnection())
 
         Dim reader As SqlDataReader = cmd.ExecuteReader()
         Combo_productos.Items.Clear()
@@ -48,7 +48,7 @@ Public Class Ventas
 
     Private Sub ComboBox_clientes_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox_clientes.SelectedIndexChanged
         Dim Query As String = "SELECT ID_Cliente,telefono,direccion FROM clientes WHERE nombre = @nombre"
-        Dim Cmd As New SqlCommand(Query, c.Con)
+        Dim Cmd As New SqlCommand(Query, _venta.GetConnection())
         Cmd.Parameters.AddWithValue("@nombre", ComboBox_clientes.Text)
 
         Dim reader As SqlDataReader = Cmd.ExecuteReader()
@@ -57,7 +57,7 @@ Public Class Ventas
             reader.Read()
             Dim ID_cliente As Integer = Convert.ToInt32(reader("ID_Cliente"))
             Dim telefono As Decimal = Convert.ToDecimal(reader("telefono"))
-            Dim direccion As String = reader("direccion")
+            Dim direccion As String = CStr(reader("direccion"))
             Txt_cliente.Text = ID_cliente.ToString()
             Txt_telefono.Text = telefono.ToString()
             Txt_direccion.Text = direccion.ToString()
@@ -67,7 +67,7 @@ Public Class Ventas
 
     Private Sub Combo_productos_SelectedIndexChanged(sender As Object, e As EventArgs) Handles Combo_productos.SelectedIndexChanged
         Dim Query1 As String = "select id_Productos,Precio_unitario,Stock_Actual,imagen from productos where nombre=@nombre "
-        Dim Cmd1 As New SqlCommand(Query1, c.Con)
+        Dim Cmd1 As New SqlCommand(Query1, _venta.GetConnection())
         Cmd1.Parameters.AddWithValue("@nombre", Combo_productos.Text)
         Dim reader As SqlDataReader = Cmd1.ExecuteReader()
         If reader.HasRows Then
@@ -79,9 +79,9 @@ Public Class Ventas
             Dim ms As New IO.MemoryStream(I)
             imagen1.Image = Image.FromStream(ms)
             imagen1.SizeMode = PictureBoxSizeMode.StretchImage
-            Txt_id_productos.Text = id_productos
-            Txt_PrecioUnitario.Text = Precio_unitario
-            Txt_stock_acual.Text = Stock_Actual
+            Txt_id_productos.Text = CStr(id_productos)
+            Txt_PrecioUnitario.Text = CStr(Precio_unitario)
+            Txt_stock_acual.Text = CStr(Stock_Actual)
             reader.Close()
         End If
 
@@ -92,21 +92,21 @@ Public Class Ventas
         Dim dt As New vdetalle_de_ventas()
         Dim fun As New Fventas()
         dts1.GFecha_venta = DateTimePicker1.Value
-        dts1.GID_cliente = Txt_cliente.Text
-        dts1.Gtotal = Txt_precio_total.Text
-        dt.Gid_producto = Txt_id_productos.Text
+        dts1.GID_cliente = CInt(Txt_cliente.Text)
+        dts1.Gtotal = CInt(Txt_precio_total.Text)
+        dt.Gid_producto = CInt(Txt_id_productos.Text)
         dt.Gcantidad_ventas = CInt(txtcantidad.Value)
-        dt.Gprecio_unitario = Txt_PrecioUnitario.Text
-        dt.Gsubtotal = Txt_precio_total.Text
+        dt.Gprecio_unitario = CInt(Txt_PrecioUnitario.Text)
+        dt.Gsubtotal = CInt(Txt_precio_total.Text)
         fun.Add_venta(dts1, dt)
-        DataGridView_ventas.DataSource = func_venta.mostrar_ventas
+        DataGridView_ventas.DataSource = _venta.mostrar_ventas
 
     End Sub
 
     Private Sub agregar_venta_Click(sender As Object, e As EventArgs) Handles agregar_venta.Click
         Dim Precio_unitario As Integer = Integer.Parse(Txt_PrecioUnitario.Text)
         Dim cantidad As Integer = CInt(txtcantidad.Value)
-        Txt_precio_total.Text = Precio_unitario * cantidad
+        Txt_precio_total.Text = CStr(Precio_unitario * cantidad)
     End Sub
 
 
@@ -123,7 +123,7 @@ Public Class Ventas
 
                 Dim ID_Ventas As Integer = Convert.ToInt32(selectedRow.Cells("ID_Ventas").Value)
 
-                DataGridView_Detalle_Venta.DataSource = func_venta.mostrar_detalle_ventas(ID_Ventas)
+                DataGridView_Detalle_Venta.DataSource = _venta.mostrar_detalle_ventas(ID_Ventas)
             End If
         Catch ex As Exception
             MessageBox.Show(ex.Message)

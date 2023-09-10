@@ -19,9 +19,9 @@ Public Class productos
         Dim dts As New Vproductos()
         Dim func As New Fproductos()
         dts.Gnombre = nombre.Text
-        dts.Gcantidad = cantidad.Text
+        dts.Gcantidad = CInt(cantidad.Text)
         dts.Gdescription = description.Text
-        dts.Gprecio = precio.Text
+        dts.Gprecio = CInt(precio.Text)
         dts.GFechaCreacion = fechacreacion.Text
         func.Add_productos(dts)
         Mostrar()
@@ -37,7 +37,7 @@ Public Class productos
             precio.Text = DataGridView_prudoctos.SelectedCells.Item(4).Value.ToString
             fechacreacion.Text = DataGridView_prudoctos.SelectedCells.Item(5).Value.ToString
         Catch ex As Exception
-            'MsgBox(ex.Message)
+            MsgBox(ex.Message)
 
         Finally
 
@@ -45,11 +45,11 @@ Public Class productos
     End Sub
     Private Sub Guardar_cambios_Click_1(sender As Object, e As EventArgs) Handles Guardar_cambios.Click
 
-        dts.Gid_productos = id_productos.Text
+        dts.Gid_productos = CInt(id_productos.Text)
         dts.Gnombre = nombre.Text
-        dts.Gcantidad = cantidad.Text
+        dts.Gcantidad = CInt(cantidad.Text)
         dts.Gdescription = description.Text
-        dts.Gprecio = precio.Text
+        dts.Gprecio = CInt(precio.Text)
         dts.GFechaCreacion = fechacreacion.Text
         _prod.Modificar_productos(dts)
         Mostrar()
@@ -72,16 +72,16 @@ Public Class productos
     End Sub
     Public Mid_productos As String
     Public Sub Eliminar_productos_Click(sender As Object, e As EventArgs) Handles eliminar_productos.Click
-        dts.Gid_productos = DataGridView_prudoctos.SelectedCells.Item(0).Value
+        dts.Gid_productos = CInt(DataGridView_prudoctos.SelectedCells.Item(0).Value)
         _prod.Eliminar_productos(dts)
         DataGridView_prudoctos.DataSource = _prod.Mostrar_productos()
     End Sub
     Private Sub Buscar_productos()
         Try
-            Dim conn As New Conection()
-            conn.GetConnection()
+
+
             Dim dt As New DataTable()
-            Dim da As New SqlDataAdapter("buscar_productos", conn.Con)
+            Dim da As New SqlDataAdapter("buscar_productos", _prod.GetConnection)
             da.SelectCommand.CommandType = CommandType.StoredProcedure
             da.SelectCommand.Parameters.AddWithValue("@letra", Buscar.Text)
             da.Fill(dt)
@@ -95,7 +95,7 @@ Public Class productos
     End Sub
 
     Private Sub agregar_imagen_Click(sender As Object, e As EventArgs) Handles agregar_imagen.Click
-        Dim con As New Conection()
+
 
         Try
             Using selectedRow As DataGridViewRow = DataGridView_prudoctos.SelectedRows(0)
@@ -108,17 +108,17 @@ Public Class productos
 
                     Dim image As Image = Image.FromFile(openFileDialog1.FileName)
 
-                    con.GetConnection()
+                    _prod.GetConnection()
                     Dim ms As New MemoryStream()
                     image.Save(ms, ImageFormat.Jpeg)
                     Dim imageData As Byte() = ms.ToArray()
 
-                    Dim cmd As New SqlCommand("UPDATE Productos SET imagen=@imagen WHERE id_Productos=@id_Productos", con.Con)
+                    Dim cmd As New SqlCommand("UPDATE Productos SET imagen=@imagen WHERE id_Productos=@id_Productos", _prod.GetConnection)
                     cmd.Parameters.AddWithValue("@imagen", imageData)
                     cmd.Parameters.AddWithValue("@id_Productos", id_Productos)
                     cmd.ExecuteNonQuery()
 
-                    con.CloseConnection()
+                    _prod.CloseConnection()
                 End If
             End Using
 

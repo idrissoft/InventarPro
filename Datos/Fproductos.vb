@@ -30,18 +30,16 @@ Public Class Fproductos
 
     End Function
 
-    Function Add_productos(ByVal dts As Vproductos)
+    Function Add_productos(ByVal dts As Vproductos) As Boolean
         Try
-            GetConnection()
-            Dim cmd As New SqlCommand("insertar_productos ") With {.CommandType = CommandType.StoredProcedure, .Connection = Con}
-            cmd.CommandType = CommandType.StoredProcedure
-            cmd.Connection = Con
+
+            Dim cmd As New SqlCommand("insertar_productos ") With {.CommandType = CommandType.StoredProcedure, .Connection = GetConnection()}
             cmd.Parameters.AddWithValue("@nombre", dts.Gnombre)
             cmd.Parameters.AddWithValue("@cantidad", dts.Gcantidad)
             cmd.Parameters.AddWithValue("@description", dts.Gdescription)
             cmd.Parameters.AddWithValue("@precio", dts.Gprecio)
-            Dim executeNonQuery As Integer = cmd.ExecuteNonQuery
-            Return executeNonQuery
+            Dim executeNonQuery As Integer = cmd.ExecuteNonQuery()
+            Return executeNonQuery > 0
         Catch ex As Exception
             MsgBox(ex.Message)
             Return False
@@ -49,19 +47,18 @@ Public Class Fproductos
             CloseConnection()
         End Try
     End Function
-    Function Modificar_productos(ByVal dts As Vproductos)
+    Function Modificar_productos(ByVal dts As Vproductos) As Boolean
         Try
-            GetConnection()
-            Dim cmd As New SqlCommand("editar_productos ") With {.CommandType = CommandType.StoredProcedure, .Connection = Con}
-            cmd.CommandType = CommandType.StoredProcedure
-            cmd.Connection = Con
+
+            Dim cmd As New SqlCommand("editar_productos ") With {.CommandType = CommandType.StoredProcedure, .Connection = GetConnection()}
+
             cmd.Parameters.AddWithValue("@id_productos", dts.Gid_productos)
             cmd.Parameters.AddWithValue("@nombre", dts.Gnombre)
             cmd.Parameters.AddWithValue("@cantidad", dts.Gcantidad)
             cmd.Parameters.AddWithValue("@description", dts.Gdescription)
             cmd.Parameters.AddWithValue("@precio", dts.Gprecio)
             Dim executeNonQuery As Integer = cmd.ExecuteNonQuery
-            Return executeNonQuery
+            Return executeNonQuery > 0
         Catch ex As Exception
             MsgBox(ex.Message)
             Return False
@@ -69,15 +66,15 @@ Public Class Fproductos
             CloseConnection()
         End Try
     End Function
-    Function Eliminar_productos(ByVal dts As Vproductos)
+    Function Eliminar_productos(ByVal dts As Vproductos) As Boolean
         Dim prof As New productos()
         Try
-            GetConnection()
+
             Dim cmd As New SqlCommand("delete from productos WHERE id_Productos= @id_Productos")
             cmd.Parameters.AddWithValue("@id_Productos", dts.Gid_productos)
-            cmd.Connection = Con
+            cmd.Connection = GetConnection()
             Dim executeNonQuery As Integer = cmd.ExecuteNonQuery
-            Return executeNonQuery
+            Return executeNonQuery > 0
         Catch ex As Exception
             MsgBox(ex.Message)
             Return False

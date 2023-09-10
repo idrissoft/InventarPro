@@ -1,8 +1,8 @@
 ﻿
 
 Public Class Vclientes
-    Dim idcliente, Telefono As Integer
-    Dim Nombre, Email, Direccion, FechaRegistro, Estado As String
+    Dim idcliente As Integer
+    Dim Nombre, Email, Direccion, FechaRegistro, Estado, Telefono As String
 
     Property Gidcliente As Integer
         Get
