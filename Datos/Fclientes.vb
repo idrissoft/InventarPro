@@ -2,7 +2,7 @@
 Public Class Fclientes
     Inherits Conection
 
-    Public Function Mostrar_clientes() As DataTable
+    Friend Function Get_clientes() As DataTable
         Dim dt As New DataTable()
         Dim cmd As SqlCommand
         Dim da As SqlDataAdapter

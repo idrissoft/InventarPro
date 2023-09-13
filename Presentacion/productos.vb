@@ -13,7 +13,7 @@ Public Class productos
     End Sub
     Sub Mostrar()
 
-        DataGridView_prudoctos.DataSource = _prod.Mostrar_productos()
+        DataGridView_prudoctos.DataSource = _prod.Get_productos()
     End Sub
     Private Sub Guardar_Click(sender As Object, e As EventArgs) Handles Guardar.Click
         Dim dts As New Vproductos()
@@ -74,12 +74,10 @@ Public Class productos
     Public Sub Eliminar_productos_Click(sender As Object, e As EventArgs) Handles eliminar_productos.Click
         dts.Gid_productos = CInt(DataGridView_prudoctos.SelectedCells.Item(0).Value)
         _prod.Eliminar_productos(dts)
-        DataGridView_prudoctos.DataSource = _prod.Mostrar_productos()
+        DataGridView_prudoctos.DataSource = _prod.Get_productos()
     End Sub
     Private Sub Buscar_productos()
         Try
-
-
             Dim dt As New DataTable()
             Dim da As New SqlDataAdapter("buscar_productos", _prod.GetConnection)
             da.SelectCommand.CommandType = CommandType.StoredProcedure
@@ -96,7 +94,6 @@ Public Class productos
 
     Private Sub agregar_imagen_Click(sender As Object, e As EventArgs) Handles agregar_imagen.Click
 
-
         Try
             Using selectedRow As DataGridViewRow = DataGridView_prudoctos.SelectedRows(0)
                 Dim id_Productos As Integer = Convert.ToInt32(selectedRow.Cells("id_Productos").Value)
@@ -107,12 +104,10 @@ Public Class productos
                 If openFileDialog1.ShowDialog() = DialogResult.OK Then
 
                     Dim image As Image = Image.FromFile(openFileDialog1.FileName)
-
                     _prod.GetConnection()
                     Dim ms As New MemoryStream()
                     image.Save(ms, ImageFormat.Jpeg)
                     Dim imageData As Byte() = ms.ToArray()
-
                     Dim cmd As New SqlCommand("UPDATE Productos SET imagen=@imagen WHERE id_Productos=@id_Productos", _prod.GetConnection)
                     cmd.Parameters.AddWithValue("@imagen", imageData)
                     cmd.Parameters.AddWithValue("@id_Productos", id_Productos)

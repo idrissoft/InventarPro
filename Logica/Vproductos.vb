@@ -73,14 +73,14 @@ Public Class Vproductos
             imagen = CByte(value)
         End Set
     End Property
-    'Public Sub New()
-    '    gid_productos = id_productos
-    '    gcantidad = Cantidad
-    '    gprecio = Precio
-    '    Gnombre = nombre
-    '    Gdescription = description
-    '    GFechaCreacion = FechaCreacion
-    '    GStock_Actual = Stock_Actual
-    'End Sub
+    Public Sub New()
+        Gid_productos = id_productos
+        Gcantidad = Cantidad
+        Gprecio = Precio
+        Gnombre = nombre
+        Gdescription = description
+        GFechaCreacion = FechaCreacion
+        GStock_Actual = Stock_Actual
+    End Sub
 
 End Class

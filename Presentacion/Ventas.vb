@@ -1,13 +1,12 @@
 ﻿Imports System.Data.SqlClient
-Imports System.Drawing.Imaging
-Imports System.IO
+
 
 Public Class Ventas
     Dim _venta As New Fventas
 
     Private Sub Ventas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         CenterToParent()
-        DataGridView_ventas.DataSource = _venta.mostrar_ventas
+        DataGridView_ventas.DataSource = _venta.Get_ventas
         Dim func_cliente As New Fclientes
         CargarClientes()
         cargar_productos()
@@ -76,21 +75,24 @@ Public Class Ventas
     End Sub
 
     Private Sub Btn_crear_venta_Click(sender As Object, e As EventArgs) Handles Btn_crear_venta.Click
-        Dim dts1 As New Vventas()
-        Dim dt As New vdetalle_de_ventas()
-        Dim fun As New Fventas()
-        dts1.GFecha_venta = DateTimePicker1.Value
-        dts1.GID_cliente = CInt(Txt_cliente.Text)
-        dts1.Gtotal = CInt(Txt_precio_total.Text)
-        dt.Gid_producto = CInt(Txt_id_productos.Text)
-        dt.Gcantidad_ventas = CInt(txtcantidad.Value)
-        dt.Gprecio_unitario = CInt(Txt_PrecioUnitario.Text)
-        dt.Gsubtotal = CInt(Txt_precio_total.Text)
-        fun.Add_venta(dts1, dt)
-        DataGridView_ventas.DataSource = _venta.Mostrar_ventas
+        Dim Vvent As New Vventas()
+        Dim Vdet_vent As New vdetalle_de_ventas()
+        Dim Vpro As New Vproductos
+        Dim Fvent As New Fventas()
+        Vvent.GFecha_venta = DateTimePicker1.Value
+        Vvent.GID_cliente = CInt(Txt_cliente.Text)
+        Vvent.Gtotal = CInt(Txt_precio_total.Text)
+        Vdet_vent.Gid_producto = CInt(Txt_id_productos.Text)
+        Vdet_vent.Gcantidad_ventas = CInt(txtcantidad.Value)
+        Vdet_vent.Gprecio_unitario = CInt(Txt_PrecioUnitario.Text)
+        Vdet_vent.Gsubtotal = CInt(Txt_precio_total.Text)
+        Vpro.GStock_Actual = CInt(Txt_stock_acual.Text)
+        Fvent.Add_venta(Vvent, Vdet_vent, Vpro)
+        Fvent.Acualisacion_stock(Vdet_vent, Vpro)
+        DataGridView_ventas.DataSource = _venta.Get_ventas
     End Sub
 
-    Private Sub agregar_venta_Click(sender As Object, e As EventArgs) Handles agregar_venta.Click
+    Private Sub Calcul_Precio_total_Click(sender As Object, e As EventArgs) Handles Calcul_Precio_total.Click
         Dim Precio_unitario As Integer = Integer.Parse(Txt_PrecioUnitario.Text)
         Dim cantidad As Integer = CInt(txtcantidad.Value)
         Txt_precio_total.Text = CStr(Precio_unitario * cantidad)
@@ -103,7 +105,7 @@ Public Class Ventas
                 Dim selectedRow As DataGridViewRow
                 selectedRow = DataGridView_ventas.Rows(e.RowIndex)
                 Dim ID_Ventas As Integer = Convert.ToInt32(selectedRow.Cells("ID_Ventas").Value)
-                DataGridView_Detalle_Venta.DataSource = _venta.mostrar_detalle_ventas(ID_Ventas)
+                DataGridView_Detalle_Venta.DataSource = _venta.Get_detalle_ventas(ID_Ventas)
             End If
         Catch ex As Exception
             MessageBox.Show(ex.Message)

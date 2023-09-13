@@ -36,7 +36,7 @@ Partial Class Ventas
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.ListBox1 = New System.Windows.Forms.ListBox()
-        Me.agregar_venta = New System.Windows.Forms.PictureBox()
+        Me.Calcul_Precio_total = New System.Windows.Forms.PictureBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.DataGridView_ventas = New System.Windows.Forms.DataGridView()
         Me.ListBox2 = New System.Windows.Forms.ListBox()
@@ -60,7 +60,7 @@ Partial Class Ventas
         Me.Label14 = New System.Windows.Forms.Label()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.DataGridView_Detalle_Venta = New System.Windows.Forms.DataGridView()
-        CType(Me.agregar_venta, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Calcul_Precio_total, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.DataGridView_ventas, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.imagen1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -192,16 +192,16 @@ Partial Class Ventas
         Me.ListBox1.Size = New System.Drawing.Size(1142, 186)
         Me.ListBox1.TabIndex = 19
         '
-        'agregar_venta
+        'Calcul_Precio_total
         '
-        Me.agregar_venta.BackgroundImage = CType(resources.GetObject("agregar_venta.BackgroundImage"), System.Drawing.Image)
-        Me.agregar_venta.Image = CType(resources.GetObject("agregar_venta.Image"), System.Drawing.Image)
-        Me.agregar_venta.Location = New System.Drawing.Point(467, 321)
-        Me.agregar_venta.Name = "agregar_venta"
-        Me.agregar_venta.Size = New System.Drawing.Size(25, 23)
-        Me.agregar_venta.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.agregar_venta.TabIndex = 28
-        Me.agregar_venta.TabStop = False
+        Me.Calcul_Precio_total.BackgroundImage = CType(resources.GetObject("Calcul_Precio_total.BackgroundImage"), System.Drawing.Image)
+        Me.Calcul_Precio_total.Image = CType(resources.GetObject("Calcul_Precio_total.Image"), System.Drawing.Image)
+        Me.Calcul_Precio_total.Location = New System.Drawing.Point(467, 321)
+        Me.Calcul_Precio_total.Name = "Calcul_Precio_total"
+        Me.Calcul_Precio_total.Size = New System.Drawing.Size(25, 23)
+        Me.Calcul_Precio_total.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.Calcul_Precio_total.TabIndex = 28
+        Me.Calcul_Precio_total.TabStop = False
         '
         'Panel1
         '
@@ -425,7 +425,7 @@ Partial Class Ventas
         Me.Controls.Add(Me.Txt_id_productos)
         Me.Controls.Add(Me.Txt_stock_acual)
         Me.Controls.Add(Me.Panel1)
-        Me.Controls.Add(Me.agregar_venta)
+        Me.Controls.Add(Me.Calcul_Precio_total)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.Label10)
@@ -443,7 +443,7 @@ Partial Class Ventas
         Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "Ventas"
         Me.Text = "Ventas"
-        CType(Me.agregar_venta, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Calcul_Precio_total, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         CType(Me.DataGridView_ventas, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.imagen1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -467,7 +467,7 @@ Partial Class Ventas
     Friend WithEvents Label10 As Label
     Friend WithEvents Label11 As Label
     Friend WithEvents ListBox1 As ListBox
-    Friend WithEvents agregar_venta As PictureBox
+    Friend WithEvents Calcul_Precio_total As PictureBox
     Friend WithEvents Panel1 As Panel
     Friend WithEvents ListBox2 As ListBox
     Friend WithEvents Txt_stock_acual As TextBox

@@ -69,9 +69,6 @@ Public Class Vclientes
         gFechaRegistro = FechaRegistro
         gestado = Estado
     End Sub
-    'Public Sub New(dataGridView As Object)
-    '    Dim DataGridView_clientes As Object
-    '    DataGridView_clientes = dataGridView
-    'End Sub
+
 
 End Class
