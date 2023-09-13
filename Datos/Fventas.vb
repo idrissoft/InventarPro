@@ -5,21 +5,16 @@ Public Class Fventas
 
     Inherits Conection
 
-    Function mostrar_ventas() As DataTable
+    Function Mostrar_ventas() As DataTable
         Dim dt As New DataTable()
         Dim da As New SqlDataAdapter
         Dim cmd As New SqlCommand
         Try
-
             cmd = New SqlCommand("mostrar_ventas") With {.CommandType = CommandType.StoredProcedure, .Connection = GetConnection()}
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = GetConnection()
             da = New SqlDataAdapter(cmd)
-
-
             da.Fill(dt)
-
-
         Catch ex As Exception
             MsgBox(ex.Message)
             Return Nothing
@@ -39,7 +34,6 @@ Public Class Fventas
             cmd.Parameters.AddWithValue("@ID_Cliente", dts.GID_cliente)
             cmd.Parameters.AddWithValue("@total", dts.Gtotal)
             dts.id_Ventas = Convert.ToInt32(cmd.ExecuteScalar())
-
         Catch ex As Exception
             MsgBox(ex.Message)
 
@@ -54,13 +48,11 @@ Public Class Fventas
             Dim cmd1 As New SqlCommand("insertar_detalle_venta ") With {.CommandType = CommandType.StoredProcedure, .Connection = GetConnection()}
             cmd1.CommandType = CommandType.StoredProcedure
             cmd1.Connection = GetConnection()
-
             cmd1.Parameters.AddWithValue("@ID_Ventas", dts.id_Ventas)
             cmd1.Parameters.AddWithValue("@ID_Producto", dt.ID_Producto)
             cmd1.Parameters.AddWithValue("@Cantidad_ventas", dt.Cantidad_ventas)
             cmd1.Parameters.AddWithValue("@Precio_Unitario", dt.Precio_Unitario)
             cmd1.Parameters.AddWithValue("@subtotal", dt.Subtotal)
-
             Dim executeNonQuery As Integer = cmd1.ExecuteNonQuery
 
         Catch ex As Exception

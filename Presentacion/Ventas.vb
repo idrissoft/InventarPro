@@ -14,34 +14,25 @@ Public Class Ventas
     End Sub
 
     Private Sub CargarClientes()
-
         _venta.GetConnection()
         Dim query As String = "SELECT Nombre FROM Clientes"
         Dim cmd As New SqlCommand(query, _venta.GetConnection())
-
         Dim reader As SqlDataReader = cmd.ExecuteReader()
         ComboBox_clientes.Items.Clear()
-
         While reader.Read()
             ComboBox_clientes.Items.Add(reader("Nombre").ToString())
         End While
-
         reader.Close()
-
     End Sub
 
     Private Sub cargar_productos()
-
         Dim query As String = "SELECT nombre FROM Productos"
         Dim cmd As New SqlCommand(query, _venta.GetConnection())
-
         Dim reader As SqlDataReader = cmd.ExecuteReader()
         Combo_productos.Items.Clear()
-
         While reader.Read()
             Combo_productos.Items.Add(reader("nombre").ToString())
         End While
-
         reader.Close()
     End Sub
 
@@ -50,9 +41,7 @@ Public Class Ventas
         Dim Query As String = "SELECT ID_Cliente,telefono,direccion FROM clientes WHERE nombre = @nombre"
         Dim Cmd As New SqlCommand(Query, _venta.GetConnection())
         Cmd.Parameters.AddWithValue("@nombre", ComboBox_clientes.Text)
-
         Dim reader As SqlDataReader = Cmd.ExecuteReader()
-
         If reader.HasRows Then
             reader.Read()
             Dim ID_cliente As Integer = Convert.ToInt32(reader("ID_Cliente"))
@@ -84,7 +73,6 @@ Public Class Ventas
             Txt_stock_acual.Text = CStr(Stock_Actual)
             reader.Close()
         End If
-
     End Sub
 
     Private Sub Btn_crear_venta_Click(sender As Object, e As EventArgs) Handles Btn_crear_venta.Click
@@ -99,8 +87,7 @@ Public Class Ventas
         dt.Gprecio_unitario = CInt(Txt_PrecioUnitario.Text)
         dt.Gsubtotal = CInt(Txt_precio_total.Text)
         fun.Add_venta(dts1, dt)
-        DataGridView_ventas.DataSource = _venta.mostrar_ventas
-
+        DataGridView_ventas.DataSource = _venta.Mostrar_ventas
     End Sub
 
     Private Sub agregar_venta_Click(sender As Object, e As EventArgs) Handles agregar_venta.Click
@@ -110,25 +97,17 @@ Public Class Ventas
     End Sub
 
 
-
     Private Sub DataGridView_ventas_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView_ventas.CellClick
         Try
             If e.RowIndex >= 0 Then
-
                 Dim selectedRow As DataGridViewRow
-
-
                 selectedRow = DataGridView_ventas.Rows(e.RowIndex)
-
-
                 Dim ID_Ventas As Integer = Convert.ToInt32(selectedRow.Cells("ID_Ventas").Value)
-
                 DataGridView_Detalle_Venta.DataSource = _venta.mostrar_detalle_ventas(ID_Ventas)
             End If
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
-
     End Sub
 End Class
 
