@@ -73,7 +73,7 @@ Public Class Ventas
             reader.Close()
         End If
     End Sub
-
+    '><><><><><><><><><
     Private Sub Btn_crear_venta_Click(sender As Object, e As EventArgs) Handles Btn_crear_venta.Click
         Dim Vvent As New Vventas()
         Dim Vdet_vent As New vdetalle_de_ventas()
