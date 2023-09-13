@@ -79,17 +79,30 @@ Public Class Ventas
         Dim Vdet_vent As New vdetalle_de_ventas()
         Dim Vpro As New Vproductos
         Dim Fvent As New Fventas()
-        Vvent.GFecha_venta = DateTimePicker1.Value
-        Vvent.GID_cliente = CInt(Txt_cliente.Text)
-        Vvent.Gtotal = CInt(Txt_precio_total.Text)
-        Vdet_vent.Gid_producto = CInt(Txt_id_productos.Text)
-        Vdet_vent.Gcantidad_ventas = CInt(txtcantidad.Value)
-        Vdet_vent.Gprecio_unitario = CInt(Txt_PrecioUnitario.Text)
-        Vdet_vent.Gsubtotal = CInt(Txt_precio_total.Text)
-        Vpro.GStock_Actual = CInt(Txt_stock_acual.Text)
-        Fvent.Add_venta(Vvent, Vdet_vent, Vpro)
-        Fvent.Acualisacion_stock(Vdet_vent, Vpro)
-        DataGridView_ventas.DataSource = _venta.Get_ventas
+        If Txt_precio_total.Text <> "" Then
+            Vvent.GFecha_venta = DateTimePicker1.Value
+            Vvent.GID_cliente = CInt(Txt_cliente.Text)
+            Vvent.Gtotal = CInt(Txt_precio_total.Text)
+            Vdet_vent.Gid_producto = CInt(Txt_id_productos.Text)
+            Vdet_vent.Gcantidad_ventas = CInt(txtcantidad.Value)
+            Vdet_vent.Gprecio_unitario = CInt(Txt_PrecioUnitario.Text)
+            Vdet_vent.Gsubtotal = CInt(Txt_precio_total.Text)
+            Vpro.GStock_Actual = CInt(Txt_stock_acual.Text)
+
+            Dim Stock_Actual As Integer = Vpro.GStock_Actual - Vdet_vent.Cantidad_ventas
+            Dim ID_Producto As Integer = Vdet_vent.ID_Producto
+            If Stock_Actual > 0 Then
+
+                Fvent.Add_venta(Vvent, Vdet_vent, Vpro)
+                Fvent.Acualisacion_stock(Vdet_vent, Vpro)
+            Else
+
+                MessageBox.Show("No hay suficiente stock para completar la operación.")
+            End If
+        Else
+                MessageBox.Show("tiene que calcular el precio total antes de crea una venta")
+            DataGridView_ventas.DataSource = _venta.Get_ventas
+        End If
     End Sub
 
     Private Sub Calcul_Precio_total_Click(sender As Object, e As EventArgs) Handles Calcul_Precio_total.Click

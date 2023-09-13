@@ -68,7 +68,7 @@ Public Class Fventas
         Dim Stock_Actual As Integer = d.GStock_Actual - dt.Cantidad_ventas
         Dim ID_Producto As Integer = dt.ID_Producto
         If Stock_Actual > 0 Then
-            Dim updateStockQuery As String = "UPDATE productos SET Stock_Actual = @Stock_Actual WHERE id_Productos =  @ID_Productos"
+            Dim updateStockQuery As String = "EXEC update_productos @Stock_Actual, @ID_Productos"
             Dim updateStockCmd As New SqlCommand(updateStockQuery, GetConnection)
             updateStockCmd.Parameters.AddWithValue("@Stock_Actual", Stock_Actual)
             updateStockCmd.Parameters.AddWithValue("@id_Productos", ID_Producto)
@@ -84,7 +84,7 @@ Public Class Fventas
         Dim da As New SqlDataAdapter
         Try
             GetConnection()
-            Dim cmd As New SqlCommand("Get_detalle_ventas")
+            Dim cmd As New SqlCommand("mostrar_detalle_ventas")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = GetConnection()
             cmd.Parameters.AddWithValue("@ID_Ventas", ID_Ventas)

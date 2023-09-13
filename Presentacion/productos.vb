@@ -5,7 +5,7 @@ Imports System.IO
 Public Class productos
 
     Private ReadOnly _prod As New Fproductos()
-    ReadOnly dts As New Vproductos()
+    ReadOnly Vpro As New Vproductos()
 
     Private Sub Productos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Mostrar()
@@ -16,14 +16,12 @@ Public Class productos
         DataGridView_prudoctos.DataSource = _prod.Get_productos()
     End Sub
     Private Sub Guardar_Click(sender As Object, e As EventArgs) Handles Guardar.Click
-        Dim dts As New Vproductos()
-        Dim func As New Fproductos()
-        dts.Gnombre = nombre.Text
-        dts.Gcantidad = CInt(cantidad.Text)
-        dts.Gdescription = description.Text
-        dts.Gprecio = CInt(precio.Text)
-        dts.GFechaCreacion = fechacreacion.Text
-        func.Add_productos(dts)
+        Vpro.Gnombre = nombre.Text
+        Vpro.Gcantidad = CInt(cantidad.Text)
+        Vpro.Gdescription = description.Text
+        Vpro.Gprecio = CInt(precio.Text)
+        Vpro.GFechaCreacion = fechacreacion.Text
+        _prod.Add_productos(Vpro)
         Mostrar()
     End Sub
     Private Sub DataGridView_prudoctos_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView_prudoctos.CellClick
@@ -45,13 +43,13 @@ Public Class productos
     End Sub
     Private Sub Guardar_cambios_Click_1(sender As Object, e As EventArgs) Handles Guardar_cambios.Click
 
-        dts.Gid_productos = CInt(id_productos.Text)
-        dts.Gnombre = nombre.Text
-        dts.Gcantidad = CInt(cantidad.Text)
-        dts.Gdescription = description.Text
-        dts.Gprecio = CInt(precio.Text)
-        dts.GFechaCreacion = fechacreacion.Text
-        _prod.Modificar_productos(dts)
+        Vpro.Gid_productos = CInt(id_productos.Text)
+        Vpro.Gnombre = nombre.Text
+        Vpro.Gcantidad = CInt(cantidad.Text)
+        Vpro.Gdescription = description.Text
+        Vpro.Gprecio = CInt(precio.Text)
+        Vpro.GFechaCreacion = fechacreacion.Text
+        _prod.Modificar_productos(Vpro)
         Mostrar()
     End Sub
 
@@ -72,8 +70,8 @@ Public Class productos
     End Sub
     Public Mid_productos As String
     Public Sub Eliminar_productos_Click(sender As Object, e As EventArgs) Handles eliminar_productos.Click
-        dts.Gid_productos = CInt(DataGridView_prudoctos.SelectedCells.Item(0).Value)
-        _prod.Eliminar_productos(dts)
+        Vpro.Gid_productos = CInt(DataGridView_prudoctos.SelectedCells.Item(0).Value)
+        _prod.Eliminar_productos(Vpro)
         DataGridView_prudoctos.DataSource = _prod.Get_productos()
     End Sub
     Private Sub Buscar_productos()
