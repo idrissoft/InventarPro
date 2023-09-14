@@ -77,14 +77,14 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Datos\Conection.vb" />
-    <Compile Include="Datos\Fclientes.vb" />
-    <Compile Include="Datos\Fproductos.vb" />
-    <Compile Include="Datos\Fventas.vb" />
-    <Compile Include="Logica\vdetalle_de_ventas.vb" />
-    <Compile Include="Logica\Vclientes.vb" />
-    <Compile Include="Logica\Vproductos.vb" />
-    <Compile Include="Logica\Vventas.vb" />
+    <Compile Include="CAPA Datos\Conection.vb" />
+    <Compile Include="CAPA Datos\Fclientes.vb" />
+    <Compile Include="CAPA Datos\Fproductos.vb" />
+    <Compile Include="CAPA Datos\Fventas.vb" />
+    <Compile Include="CAPA NEGOCIOS\vdetalle_de_ventas.vb" />
+    <Compile Include="CAPA NEGOCIOS\Vclientes.vb" />
+    <Compile Include="CAPA NEGOCIOS\Vproductos.vb" />
+    <Compile Include="CAPA NEGOCIOS\Vventas.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>

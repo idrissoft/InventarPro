@@ -150,7 +150,7 @@ Partial Class Ventas
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(98, 13)
         Me.Label8.TabIndex = 26
-        Me.Label8.Text = "Cantidad de Venta:"
+        Me.Label8.Text = "_cantidad de Venta:"
         '
         'Label9
         '
@@ -251,7 +251,7 @@ Partial Class Ventas
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(40, 13)
         Me.Label2.TabIndex = 32
-        Me.Label2.Text = "Precio:"
+        Me.Label2.Text = "_precio:"
         '
         'Txt_PrecioUnitario
         '
@@ -380,7 +380,7 @@ Partial Class Ventas
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(67, 13)
         Me.Label14.TabIndex = 46
-        Me.Label14.Text = "Precio Total:"
+        Me.Label14.Text = "_precio _total:"
         '
         'Label15
         '

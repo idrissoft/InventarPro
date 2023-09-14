@@ -87,7 +87,7 @@ Partial Class productos
         Me.agregar_imagen.Name = "agregar_imagen"
         Me.agregar_imagen.Size = New System.Drawing.Size(161, 49)
         Me.agregar_imagen.TabIndex = 4
-        Me.agregar_imagen.Text = "agregar imagen"
+        Me.agregar_imagen.Text = "agregar _imagen"
         Me.agregar_imagen.UseVisualStyleBackColor = False
         '
         'editar_productos
@@ -298,7 +298,7 @@ Partial Class productos
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(52, 17)
         Me.Label7.TabIndex = 1
-        Me.Label7.Text = "Precio:"
+        Me.Label7.Text = "_precio:"
         '
         'Label4
         '
@@ -308,7 +308,7 @@ Partial Class productos
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(68, 17)
         Me.Label4.TabIndex = 1
-        Me.Label4.Text = "Cantidad:"
+        Me.Label4.Text = "_cantidad:"
         '
         'precio
         '
@@ -326,7 +326,7 @@ Partial Class productos
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(60, 17)
         Me.Label3.TabIndex = 1
-        Me.Label3.Text = "nombre:"
+        Me.Label3.Text = "_nombre:"
         '
         'Label8
         '
@@ -342,7 +342,7 @@ Partial Class productos
         '
         Me.nombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.nombre.Location = New System.Drawing.Point(130, 57)
-        Me.nombre.Name = "nombre"
+        Me.nombre.Name = "_nombre"
         Me.nombre.Size = New System.Drawing.Size(81, 23)
         Me.nombre.TabIndex = 0
         '
@@ -351,7 +351,7 @@ Partial Class productos
         Me.description.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.description.Location = New System.Drawing.Point(130, 123)
         Me.description.Multiline = True
-        Me.description.Name = "description"
+        Me.description.Name = "_description"
         Me.description.Size = New System.Drawing.Size(131, 40)
         Me.description.TabIndex = 0
         '
@@ -359,7 +359,7 @@ Partial Class productos
         '
         Me.id_productos.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.id_productos.Location = New System.Drawing.Point(130, 22)
-        Me.id_productos.Name = "id_productos"
+        Me.id_productos.Name = "_id_productos"
         Me.id_productos.Size = New System.Drawing.Size(81, 23)
         Me.id_productos.TabIndex = 0
         '
@@ -371,7 +371,7 @@ Partial Class productos
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(107, 17)
         Me.Label6.TabIndex = 1
-        Me.Label6.Text = "FechaCreacion:"
+        Me.Label6.Text = "_fechaCreacion:"
         '
         'fechacreacion
         '

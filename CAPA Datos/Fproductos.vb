@@ -34,10 +34,10 @@ Public Class Fproductos
         Try
 
             Dim cmd As New SqlCommand("insertar_productos ") With {.CommandType = CommandType.StoredProcedure, .Connection = GetConnection()}
-            cmd.Parameters.AddWithValue("@nombre", dts.Gnombre)
-            cmd.Parameters.AddWithValue("@cantidad", dts.Gcantidad)
-            cmd.Parameters.AddWithValue("@description", dts.Gdescription)
-            cmd.Parameters.AddWithValue("@precio", dts.Gprecio)
+            cmd.Parameters.AddWithValue("@_nombre", dts.nombre)
+            cmd.Parameters.AddWithValue("@cantidad", dts.cantidad)
+            cmd.Parameters.AddWithValue("@_description", dts.description)
+            cmd.Parameters.AddWithValue("@precio", dts.precio)
             Dim executeNonQuery As Integer = cmd.ExecuteNonQuery()
             Return executeNonQuery > 0
         Catch ex As Exception
@@ -52,11 +52,11 @@ Public Class Fproductos
 
             Dim cmd As New SqlCommand("editar_productos ") With {.CommandType = CommandType.StoredProcedure, .Connection = GetConnection()}
 
-            cmd.Parameters.AddWithValue("@id_productos", dts.Gid_productos)
-            cmd.Parameters.AddWithValue("@nombre", dts.Gnombre)
-            cmd.Parameters.AddWithValue("@cantidad", dts.Gcantidad)
-            cmd.Parameters.AddWithValue("@description", dts.Gdescription)
-            cmd.Parameters.AddWithValue("@precio", dts.Gprecio)
+            cmd.Parameters.AddWithValue("@_id_productos", dts.id_productos)
+            cmd.Parameters.AddWithValue("@_nombre", dts.nombre)
+            cmd.Parameters.AddWithValue("@cantidad", dts.cantidad)
+            cmd.Parameters.AddWithValue("@_description", dts.description)
+            cmd.Parameters.AddWithValue("@precio", dts.precio)
             Dim executeNonQuery As Integer = cmd.ExecuteNonQuery
             Return executeNonQuery > 0
         Catch ex As Exception
@@ -71,7 +71,7 @@ Public Class Fproductos
         Try
 
             Dim cmd As New SqlCommand("delete from productos WHERE id_Productos= @id_Productos")
-            cmd.Parameters.AddWithValue("@id_Productos", dts.Gid_productos)
+            cmd.Parameters.AddWithValue("@id_Productos", dts.id_productos)
             cmd.Connection = GetConnection()
             Dim executeNonQuery As Integer = cmd.ExecuteNonQuery
             Return executeNonQuery > 0
