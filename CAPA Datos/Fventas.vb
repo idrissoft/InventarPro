@@ -23,14 +23,14 @@ Public Class Fventas
         End Try
         Return dt
     End Function
-    Sub Add_venta(ByVal Vvent As Vventas, V_det_vent As vdetalle_de_ventas, Vpro As Vproductos)
+    Sub Add_venta(ByVal Vvent As Vventas, Vdet_vent As vdetalle_de_ventas, Vpro As Vproductos)
         Try
             GetConnection()
             Dim cmd As New SqlCommand("insertar_venta ") With {.CommandType = CommandType.StoredProcedure, .Connection = GetConnection()}
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = GetConnection()
 
-            cmd.Parameters.AddWithValue("@_fecha_venta", Vvent.Fecha_venta)
+            cmd.Parameters.AddWithValue("@fecha_venta", Vvent.Fecha_venta)
             cmd.Parameters.AddWithValue("@ID_Cliente", Vvent.ID_cliente)
             cmd.Parameters.AddWithValue("@Total", Vvent.Total)
             Vvent._id_ventas = Convert.ToInt32(cmd.ExecuteScalar())
@@ -48,13 +48,13 @@ Public Class Fventas
             Dim cmd1 As New SqlCommand("insertar_detalle_venta ") With {.CommandType = CommandType.StoredProcedure, .Connection = GetConnection()}
             cmd1.CommandType = CommandType.StoredProcedure
             cmd1.Connection = GetConnection()
-            cmd1.Parameters.AddWithValue("@_id_ventas", Vvent._id_ventas)
-            cmd1.Parameters.AddWithValue("@_id_producto", V_det_vent.id_producto)
-            cmd1.Parameters.AddWithValue("@_cantidad_ventas", V_det_vent.cantidad_ventas)
-            cmd1.Parameters.AddWithValue("@_precio_unitario", V_det_vent.precio_unitario)
-            cmd1.Parameters.AddWithValue("@subtotal", V_det_vent.subtotal)
+            cmd1.Parameters.AddWithValue("@id_ventas", Vvent.id_ventas)
+            cmd1.Parameters.AddWithValue("@id_producto", Vdet_vent.id_producto)
+            cmd1.Parameters.AddWithValue("@cantidad_ventas", Vdet_vent.cantidad_ventas)
+            cmd1.Parameters.AddWithValue("@precio_unitario", Vdet_vent.precio_unitario)
+            cmd1.Parameters.AddWithValue("@subtotal", Vdet_vent.subtotal)
             Dim executeNonQuery As Integer = cmd1.ExecuteNonQuery
-
+            MessageBox.Show("la venta ha creado correctamente")
         Catch ex As Exception
             MsgBox(ex.Message)
 
@@ -64,20 +64,26 @@ Public Class Fventas
 
     End Sub
     Sub Acualisacion_stock(ByVal dt As vdetalle_de_ventas, d As Vproductos)
-
-        Dim Stock_Actual As Integer = d.Stock_Actual - dt.cantidad_ventas
-        Dim ID_Producto As Integer = dt.id_producto
-        If Stock_Actual > 0 Then
-            Dim updateStockQuery As String = "EXEC update_productos @_stock_actual, @ID_Productos"
+        Try
+            Dim Stock_Actual As Integer = d.Stock_Actual - dt.cantidad_ventas
+            Dim ID_Productos As Integer = dt.id_producto
+            'If Stock_Actual > 0 Then
+            Dim updateStockQuery As String = "EXEC update_productos @stock_actual, @ID_Productos"
             Dim updateStockCmd As New SqlCommand(updateStockQuery, GetConnection)
-            updateStockCmd.Parameters.AddWithValue("@_stock_actual", Stock_Actual)
-            updateStockCmd.Parameters.AddWithValue("@id_Productos", ID_Producto)
+            updateStockCmd.Parameters.AddWithValue("@stock_actual", Stock_Actual)
+            updateStockCmd.Parameters.AddWithValue("@ID_Productos", ID_Productos)
             updateStockCmd.ExecuteNonQuery()
-            CloseConnection()
-        Else
+            '    CloseConnection()
+            'Else
 
-            MessageBox.Show("No hay suficiente stock para completar la operación.")
-        End If
+            '    MessageBox.Show("No hay suficiente stock para completar la operación.")
+            'End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+
+        Finally
+            CloseConnection()
+        End Try
     End Sub
     Function Get_detalle_ventas(ID_Ventas As Integer) As DataTable
         Dim dt1 As New DataTable
