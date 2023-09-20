@@ -5,6 +5,7 @@ Imports System.IO
 Public Class productos
 
     Private ReadOnly prod As New Fproductos()
+    Private produ As New Nproductos()
     ReadOnly Vpro As New Vproductos()
 
     Private Sub Productos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -74,20 +75,10 @@ Public Class productos
         prod.Eliminar_productos(Vpro)
         DataGridView_prudoctos.DataSource = prod.Get_productos()
     End Sub
-    Private Sub Buscar_productos()
-        Try
-            Dim dt As New DataTable()
-            Dim da As New SqlDataAdapter("buscar_productos", prod.GetConnection)
-            da.SelectCommand.CommandType = CommandType.StoredProcedure
-            da.SelectCommand.Parameters.AddWithValue("@letra", Buscar.Text)
-            da.Fill(dt)
-            DataGridView_prudoctos.DataSource = dt
-        Catch ex As Exception
-            MessageBox.Show(ex.Message)
-        End Try
-    End Sub
+
     Private Sub Buscar_TextChanged(sender As Object, e As EventArgs) Handles Buscar.TextChanged
-        Buscar_productos()
+        prod.nombre = Buscar.Text
+        DataGridView_prudoctos.DataSource = produ.Buscar_productos(prod)
     End Sub
 
     Private Sub agregar_imagen_Click(sender As Object, e As EventArgs) Handles agregar_imagen.Click

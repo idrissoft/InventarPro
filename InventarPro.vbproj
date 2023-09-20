@@ -85,6 +85,7 @@
     <Compile Include="CAPA ENTIDAD\Vclientes.vb" />
     <Compile Include="CAPA ENTIDAD\Vproductos.vb" />
     <Compile Include="CAPA ENTIDAD\Vventas.vb" />
+    <Compile Include="CPADA  de Negocios\Nproductos.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>

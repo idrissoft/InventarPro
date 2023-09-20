@@ -3,6 +3,7 @@ Imports System.Data.SqlClient
 Public Class Fproductos
 
     Inherits Conection
+    Dim dts As Vproductos
     Friend Function Get_productos() As DataTable
         Dim dt As New DataTable
         Dim da As SqlDataAdapter
@@ -30,7 +31,7 @@ Public Class Fproductos
 
     End Function
 
-    Friend Function Add_productos(ByVal dts As Vproductos) As Boolean
+    Friend Function Add_productos(vpro As Vproductos) As Boolean
         Try
 
             Dim cmd As New SqlCommand("insertar_productos ") With {.CommandType = CommandType.StoredProcedure, .Connection = GetConnection()}
@@ -81,6 +82,18 @@ Public Class Fproductos
         Finally
             CloseConnection()
         End Try
+    End Function
+    Function Buscar_productos(nombre As String) As DataTable
+
+        Dim dt As New DataTable()
+        Using conn As SqlConnection = GetConnection()
+            Dim da As New SqlDataAdapter("buscar_productos", conn)
+            da.SelectCommand.CommandType = CommandType.StoredProcedure
+
+            da.SelectCommand.Parameters.AddWithValue("@letra", nombre)
+            da.Fill(dt)
+        End Using
+        Return dt
     End Function
 End Class
 
