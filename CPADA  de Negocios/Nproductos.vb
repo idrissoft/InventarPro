@@ -1,7 +1,7 @@
 ﻿Public Class Nproductos
-    Private pro As New Fproductos()
+    Private Dpro As New Dproductos()
 
-    Public Function Buscar_productos(nombre As String) As DataTable
-        Return pro.Buscar_productos(nombre)
+    Public Function Buscar_productos(vpro As Eproductos) As DataTable
+        Return Dpro.Buscar_productos(vpro)
     End Function
 End Class

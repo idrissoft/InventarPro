@@ -1,7 +1,7 @@
 ﻿Imports System.Data.SqlClient
 
 
-Public Class Fventas
+Public Class Dventas
 
     Inherits Conection
 
@@ -23,7 +23,7 @@ Public Class Fventas
         End Try
         Return dt
     End Function
-    Sub Add_venta(ByVal Vvent As Vventas, Vdet_vent As vdetalle_de_ventas, Vpro As Vproductos)
+    Sub Add_venta(ByVal Vvent As Eventas, Vdet_vent As Edetalle_de_ventas, Vpro As Eproductos)
         Try
             GetConnection()
             Dim cmd As New SqlCommand("insertar_venta ") With {.CommandType = CommandType.StoredProcedure, .Connection = GetConnection()}
@@ -54,7 +54,7 @@ Public Class Fventas
             cmd1.Parameters.AddWithValue("@precio_unitario", Vdet_vent.precio_unitario)
             cmd1.Parameters.AddWithValue("@subtotal", Vdet_vent.subtotal)
             Dim executeNonQuery As Integer = cmd1.ExecuteNonQuery
-            MessageBox.Show("la venta ha creado correctamente")
+            MessageBox.Show("la Dventa ha creado correctamente")
         Catch ex As Exception
             MsgBox(ex.Message)
 
@@ -63,7 +63,7 @@ Public Class Fventas
         End Try
 
     End Sub
-    Sub Acualisacion_stock(ByVal dt As vdetalle_de_ventas, d As Vproductos)
+    Sub Acualisacion_stock(ByVal dt As Edetalle_de_ventas, d As Eproductos)
         Try
             Dim Stock_Actual As Integer = d.Stock_Actual - dt.cantidad_ventas
             Dim ID_Productos As Integer = dt.id_producto

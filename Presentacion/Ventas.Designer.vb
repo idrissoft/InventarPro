@@ -275,7 +275,7 @@ Partial Class Ventas
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(101, 13)
         Me.Label3.TabIndex = 35
-        Me.Label3.Text = "Informacio de venta"
+        Me.Label3.Text = "Informacio de Dventa"
         '
         'Label6
         '

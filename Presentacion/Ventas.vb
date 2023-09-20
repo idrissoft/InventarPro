@@ -2,20 +2,20 @@
 
 
 Public Class Ventas
-    Dim venta As New Fventas
+    Dim Dventa As New Dventas
 
     Private Sub Ventas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         CenterToParent()
-        DataGridView_ventas.DataSource = venta.Get_ventas
-        Dim func_cliente As New Fclientes
+        DataGridView_ventas.DataSource = Dventa.Get_ventas
+        Dim func_cliente As New Dclientes
         CargarClientes()
         cargar_productos()
     End Sub
 
     Private Sub CargarClientes()
-        venta.GetConnection()
+        Dventa.GetConnection()
         Dim query As String = "SELECT Nombre FROM Clientes"
-        Dim cmd As New SqlCommand(query, venta.GetConnection())
+        Dim cmd As New SqlCommand(query, Dventa.GetConnection())
         Dim reader As SqlDataReader = cmd.ExecuteReader()
         ComboBox_clientes.Items.Clear()
         While reader.Read()
@@ -25,7 +25,7 @@ Public Class Ventas
     End Sub
     Private Sub cargar_productos()
         Dim query As String = "SELECT nombre FROM Productos"
-        Dim cmd As New SqlCommand(query, venta.GetConnection())
+        Dim cmd As New SqlCommand(query, Dventa.GetConnection())
         Dim reader As SqlDataReader = cmd.ExecuteReader()
         Combo_productos.Items.Clear()
         While reader.Read()
@@ -36,7 +36,7 @@ Public Class Ventas
 
     Private Sub ComboBox_clientes_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox_clientes.SelectedIndexChanged
         Dim Query As String = "SELECT ID_Cliente,telefono,direccion FROM clientes WHERE nombre = @nombre"
-        Dim Cmd As New SqlCommand(Query, venta.GetConnection())
+        Dim Cmd As New SqlCommand(Query, Dventa.GetConnection())
         Cmd.Parameters.AddWithValue("@nombre", ComboBox_clientes.Text)
         Dim reader As SqlDataReader = Cmd.ExecuteReader()
         If reader.HasRows Then
@@ -53,7 +53,7 @@ Public Class Ventas
 
     Private Sub Combo_productos_SelectedIndexChanged(sender As Object, e As EventArgs) Handles Combo_productos.SelectedIndexChanged
         Dim Query1 As String = "select id_Productos,Precio_unitario,stock_actual,imagen from productos where nombre=@nombre "
-        Dim Cmd1 As New SqlCommand(Query1, venta.GetConnection())
+        Dim Cmd1 As New SqlCommand(Query1, Dventa.GetConnection())
         Cmd1.Parameters.AddWithValue("@nombre", Combo_productos.Text)
         Dim reader As SqlDataReader = Cmd1.ExecuteReader()
         If reader.HasRows Then
@@ -73,10 +73,10 @@ Public Class Ventas
     End Sub
     '><><><><><><><><><
     Private Sub Btn_crear_venta_Click(sender As Object, e As EventArgs) Handles Btn_crear_venta.Click
-        Dim Vvent As New Vventas()
-        Dim Vdet_vent As New vdetalle_de_ventas()
-        Dim Vpro As New Vproductos
-        Dim Fvent As New Fventas()
+        Dim Vvent As New Eventas()
+        Dim Vdet_vent As New Edetalle_de_ventas()
+        Dim Vpro As New Eproductos
+        Dim Fvent As New Dventas()
         If Txt_precio_total.Text <> "" Then
             Vvent.Fecha_venta = DateTimePicker1.Value
             Vvent.ID_cliente = CInt(Txt_cliente.Text)
@@ -98,8 +98,8 @@ Public Class Ventas
                 MessageBox.Show("No hay suficiente stock para completar la operación.")
             End If
         Else
-            MessageBox.Show("tiene que calcular el precio Total antes de crea una venta")
-            DataGridView_ventas.DataSource = venta.Get_ventas
+            MessageBox.Show("tiene que calcular el precio Total antes de crea una Dventa")
+            DataGridView_ventas.DataSource = Dventa.Get_ventas
         End If
     End Sub
 
@@ -116,7 +116,7 @@ Public Class Ventas
                 Dim selectedRow As DataGridViewRow
                 selectedRow = DataGridView_ventas.Rows(e.RowIndex)
                 Dim ID_Ventas As Integer = Convert.ToInt32(selectedRow.Cells("id_ventas").Value)
-                DataGridView_Detalle_Venta.DataSource = venta.Get_detalle_ventas(ID_Ventas)
+                DataGridView_Detalle_Venta.DataSource = Dventa.Get_detalle_ventas(ID_Ventas)
             End If
         Catch ex As Exception
             MessageBox.Show(ex.Message)

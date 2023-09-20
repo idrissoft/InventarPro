@@ -1,9 +1,8 @@
 ﻿
 Imports System.Data.SqlClient
-Public Class Fproductos
+Public Class Dproductos
 
     Inherits Conection
-    Dim dts As Vproductos
     Friend Function Get_productos() As DataTable
         Dim dt As New DataTable
         Dim da As SqlDataAdapter
@@ -31,14 +30,14 @@ Public Class Fproductos
 
     End Function
 
-    Friend Function Add_productos(vpro As Vproductos) As Boolean
+    Friend Function Add_productos(Epro As Eproductos) As Boolean
         Try
 
             Dim cmd As New SqlCommand("insertar_productos ") With {.CommandType = CommandType.StoredProcedure, .Connection = GetConnection()}
-            cmd.Parameters.AddWithValue("@_nombre", dts.nombre)
-            cmd.Parameters.AddWithValue("@cantidad", dts.cantidad)
-            cmd.Parameters.AddWithValue("@_description", dts.description)
-            cmd.Parameters.AddWithValue("@precio", dts.precio)
+            cmd.Parameters.AddWithValue("@_nombre", Epro.nombre)
+            cmd.Parameters.AddWithValue("@cantidad", Epro.cantidad)
+            cmd.Parameters.AddWithValue("@_description", Epro.description)
+            cmd.Parameters.AddWithValue("@precio", Epro.precio)
             Dim executeNonQuery As Integer = cmd.ExecuteNonQuery()
             Return executeNonQuery > 0
         Catch ex As Exception
@@ -48,16 +47,16 @@ Public Class Fproductos
             CloseConnection()
         End Try
     End Function
-    Function Modificar_productos(ByVal dts As Vproductos) As Boolean
+    Function Modificar_productos(ByVal Epro As Eproductos) As Boolean
         Try
 
             Dim cmd As New SqlCommand("editar_productos ") With {.CommandType = CommandType.StoredProcedure, .Connection = GetConnection()}
 
-            cmd.Parameters.AddWithValue("@_id_productos", dts.id_productos)
-            cmd.Parameters.AddWithValue("@_nombre", dts.nombre)
-            cmd.Parameters.AddWithValue("@cantidad", dts.cantidad)
-            cmd.Parameters.AddWithValue("@_description", dts.description)
-            cmd.Parameters.AddWithValue("@precio", dts.precio)
+            cmd.Parameters.AddWithValue("@_id_productos", Epro.id_productos)
+            cmd.Parameters.AddWithValue("@_nombre", Epro.nombre)
+            cmd.Parameters.AddWithValue("@cantidad", Epro.cantidad)
+            cmd.Parameters.AddWithValue("@_description", Epro.description)
+            cmd.Parameters.AddWithValue("@precio", Epro.precio)
             Dim executeNonQuery As Integer = cmd.ExecuteNonQuery
             Return executeNonQuery > 0
         Catch ex As Exception
@@ -67,12 +66,12 @@ Public Class Fproductos
             CloseConnection()
         End Try
     End Function
-    Function Eliminar_productos(ByVal dts As Vproductos) As Boolean
+    Function Eliminar_productos(ByVal Epro As Eproductos) As Boolean
         Dim prof As New productos()
         Try
 
             Dim cmd As New SqlCommand("delete from productos WHERE id_Productos= @id_Productos")
-            cmd.Parameters.AddWithValue("@id_Productos", dts.id_productos)
+            cmd.Parameters.AddWithValue("@id_Productos", Epro.id_productos)
             cmd.Connection = GetConnection()
             Dim executeNonQuery As Integer = cmd.ExecuteNonQuery
             Return executeNonQuery > 0
@@ -83,14 +82,14 @@ Public Class Fproductos
             CloseConnection()
         End Try
     End Function
-    Function Buscar_productos(nombre As String) As DataTable
+    Function Buscar_productos(Epro As Eproductos) As DataTable
 
         Dim dt As New DataTable()
         Using conn As SqlConnection = GetConnection()
             Dim da As New SqlDataAdapter("buscar_productos", conn)
             da.SelectCommand.CommandType = CommandType.StoredProcedure
 
-            da.SelectCommand.Parameters.AddWithValue("@letra", nombre)
+            da.SelectCommand.Parameters.AddWithValue("@letra", Epro.nombre)
             da.Fill(dt)
         End Using
         Return dt

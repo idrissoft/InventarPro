@@ -1,6 +1,6 @@
 ﻿
 
-Public Class Vproductos
+Public Class Eproductos
     Dim _id_productos As Integer
     Dim _cantidad As Integer
     Dim _precio As Integer

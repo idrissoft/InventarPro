@@ -1,6 +1,6 @@
 ﻿
 
-Public Class Vclientes
+Public Class Eclientes
     Dim idcliente As Integer
     Dim Nombre, Email, Direccion, FechaRegistro, Estado, Telefono As String
 
@@ -61,13 +61,13 @@ Public Class Vclientes
         End Set
     End Property
     Public Sub New()
-        gidcliente = idcliente
-        gNombre = Nombre
-        gEmail = Email
-        gTelefono = Telefono
-        gDireccion = Direccion
-        gFechaRegistro = FechaRegistro
-        gestado = Estado
+        Gidcliente = idcliente
+        GNombre = Nombre
+        GEmail = Email
+        GTelefono = Telefono
+        GDireccion = Direccion
+        GFechaRegistro = FechaRegistro
+        Gestado = Estado
     End Sub
 
 

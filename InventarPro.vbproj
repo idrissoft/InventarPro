@@ -78,13 +78,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CAPA Datos\Conection.vb" />
-    <Compile Include="CAPA Datos\Fclientes.vb" />
-    <Compile Include="CAPA Datos\Fproductos.vb" />
-    <Compile Include="CAPA Datos\Fventas.vb" />
-    <Compile Include="CAPA ENTIDAD\vdetalle_de_ventas.vb" />
-    <Compile Include="CAPA ENTIDAD\Vclientes.vb" />
-    <Compile Include="CAPA ENTIDAD\Vproductos.vb" />
-    <Compile Include="CAPA ENTIDAD\Vventas.vb" />
+    <Compile Include="CAPA Datos\Dclientes.vb" />
+    <Compile Include="CAPA Datos\Dproductos.vb" />
+    <Compile Include="CAPA Datos\Dventas.vb" />
+    <Compile Include="CAPA ENTIDAD\Edetalle_de_ventas.vb" />
+    <Compile Include="CAPA ENTIDAD\Eclientes.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CAPA ENTIDAD\Eproductos.vb" />
+    <Compile Include="CAPA ENTIDAD\Eventas.vb" />
     <Compile Include="CPADA  de Negocios\Nproductos.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">

@@ -1,4 +1,4 @@
-﻿Public Class vdetalle_de_ventas
+﻿Public Class Edetalle_de_ventas
 	Private _id_ventas, _id_producto, _cantidad_ventas, _precio_unitario, _subtotal As Integer
 	Property id_ventas As Integer
 		Get

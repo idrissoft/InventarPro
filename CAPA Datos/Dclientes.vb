@@ -1,5 +1,5 @@
 ﻿Imports System.Data.SqlClient
-Public Class Fclientes
+Public Class Dclientes
     Inherits Conection
 
     Friend Function Get_clientes() As DataTable

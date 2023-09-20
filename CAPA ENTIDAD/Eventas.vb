@@ -1,4 +1,4 @@
-﻿Public Class Vventas
+﻿Public Class Eventas
     Public _id_ventas, _id_cliente, _total As Integer
     Dim _fecha_venta As DateTime
     Property id_ventas As Integer
