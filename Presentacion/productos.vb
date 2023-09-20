@@ -113,4 +113,7 @@ Public Class productos
         End Try
     End Sub
 
+    Private Sub id_productos_TextChanged(sender As Object, e As EventArgs) Handles id_productos.TextChanged
+
+    End Sub
 End Class

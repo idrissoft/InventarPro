@@ -1,73 +1,71 @@
-﻿
+﻿Public Class Eclientes
+    Dim _idcliente As Integer
+    Dim _nombre, _email, _direccion, _fechaRegistro, _estado, _telefono As String
 
-Public Class Eclientes
-    Dim idcliente As Integer
-    Dim Nombre, Email, Direccion, FechaRegistro, Estado, Telefono As String
-
-    Property Gidcliente As Integer
+    Property Idcliente As Integer
         Get
-            Return idcliente
+            Return _idcliente
         End Get
         Set(value As Integer)
-            idcliente = value
+            _idcliente = value
         End Set
     End Property
-    Property GNombre As String
+    Property Nombre As String
         Get
-            Return Nombre
+            Return _nombre
         End Get
         Set(value As String)
-            Nombre = value
+            _nombre = value
         End Set
     End Property
-    Property GEmail As String
+    Property Email As String
         Get
-            Return Email
+            Return _email
         End Get
         Set(value As String)
-            Email = value
+            _email = value
         End Set
     End Property
-    Property GTelefono As String
+    Property Telefono As String
         Get
-            Return Telefono
+            Return _telefono
         End Get
         Set(value As String)
-            Telefono = value
+            _telefono = value
         End Set
     End Property
-    Property GDireccion As String
+    Property Direccion As String
         Get
-            Return Direccion
+            Return _direccion
         End Get
         Set(value As String)
-            Direccion = value
+            _direccion = value
         End Set
     End Property
-    Property GFechaRegistro As String
+    Property FechaRegistro As String
         Get
-            Return FechaRegistro
+            Return _fechaRegistro
         End Get
         Set(value As String)
-            FechaRegistro = value
+            _fechaRegistro = value
         End Set
     End Property
-    Property Gestado As String
+    Property Estado As String
         Get
-            Return Estado
+            Return _estado
         End Get
         Set(value As String)
-            Estado = value
+            _estado = value
         End Set
     End Property
     Public Sub New()
-        Gidcliente = idcliente
-        GNombre = Nombre
-        GEmail = Email
-        GTelefono = Telefono
-        GDireccion = Direccion
-        GFechaRegistro = FechaRegistro
-        Gestado = Estado
+        Idcliente = _idcliente
+        Nombre = _nombre
+        Email = _email
+        Telefono = _telefono
+        Direccion = _direccion
+        FechaRegistro = _fechaRegistro
+        Estado = _estado
     End Sub
 
 

@@ -47,7 +47,7 @@ Public Class Dproductos
             CloseConnection()
         End Try
     End Function
-    Function Modificar_productos(ByVal Epro As Eproductos) As Boolean
+    Friend Function Modificar_productos(ByVal Epro As Eproductos) As Boolean
         Try
 
             Dim cmd As New SqlCommand("editar_productos ") With {.CommandType = CommandType.StoredProcedure, .Connection = GetConnection()}
@@ -66,7 +66,7 @@ Public Class Dproductos
             CloseConnection()
         End Try
     End Function
-    Function Eliminar_productos(ByVal Epro As Eproductos) As Boolean
+    Friend Function Eliminar_productos(ByVal Epro As Eproductos) As Boolean
         Dim prof As New productos()
         Try
 
@@ -82,7 +82,7 @@ Public Class Dproductos
             CloseConnection()
         End Try
     End Function
-    Function Buscar_productos(Epro As Eproductos) As DataTable
+    Friend Function Buscar_productos(Epro As Eproductos) As DataTable
 
         Dim dt As New DataTable()
         Using conn As SqlConnection = GetConnection()
@@ -94,6 +94,7 @@ Public Class Dproductos
         End Using
         Return dt
     End Function
+
 End Class
 
 

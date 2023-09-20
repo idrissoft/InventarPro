@@ -328,7 +328,7 @@ Partial Class Ventas
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(58, 15)
         Me.Label12.TabIndex = 40
-        Me.Label12.Text = "Telefono:"
+        Me.Label12.Text = "_telefono:"
         '
         'Txt_direccion
         '
@@ -346,7 +346,7 @@ Partial Class Ventas
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(62, 15)
         Me.Label13.TabIndex = 42
-        Me.Label13.Text = "Direccion:"
+        Me.Label13.Text = "_direccion:"
         '
         'Txt_cliente
         '

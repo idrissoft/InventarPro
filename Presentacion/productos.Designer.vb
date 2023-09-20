@@ -296,7 +296,7 @@ Partial Class productos
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.Location = New System.Drawing.Point(29, 172)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(52, 17)
+        Me.Label7.Size = New System.Drawing.Size(59, 17)
         Me.Label7.TabIndex = 1
         Me.Label7.Text = "_precio:"
         '
@@ -306,7 +306,7 @@ Partial Class productos
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.Location = New System.Drawing.Point(29, 94)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(68, 17)
+        Me.Label4.Size = New System.Drawing.Size(74, 17)
         Me.Label4.TabIndex = 1
         Me.Label4.Text = "_cantidad:"
         '
@@ -324,7 +324,7 @@ Partial Class productos
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(29, 60)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(60, 17)
+        Me.Label3.Size = New System.Drawing.Size(68, 17)
         Me.Label3.TabIndex = 1
         Me.Label3.Text = "_nombre:"
         '
@@ -342,7 +342,7 @@ Partial Class productos
         '
         Me.nombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.nombre.Location = New System.Drawing.Point(130, 57)
-        Me.nombre.Name = "_nombre"
+        Me.nombre.Name = "nombre"
         Me.nombre.Size = New System.Drawing.Size(81, 23)
         Me.nombre.TabIndex = 0
         '
@@ -351,16 +351,18 @@ Partial Class productos
         Me.description.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.description.Location = New System.Drawing.Point(130, 123)
         Me.description.Multiline = True
-        Me.description.Name = "_description"
+        Me.description.Name = "description"
         Me.description.Size = New System.Drawing.Size(131, 40)
         Me.description.TabIndex = 0
         '
         'id_productos
         '
+        Me.id_productos.AcceptsReturn = True
         Me.id_productos.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.id_productos.Location = New System.Drawing.Point(130, 22)
-        Me.id_productos.Name = "_id_productos"
-        Me.id_productos.Size = New System.Drawing.Size(81, 23)
+        Me.id_productos.Multiline = True
+        Me.id_productos.Name = "id_productos"
+        Me.id_productos.Size = New System.Drawing.Size(81, 20)
         Me.id_productos.TabIndex = 0
         '
         'Label6
@@ -369,7 +371,7 @@ Partial Class productos
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.Location = New System.Drawing.Point(17, 210)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(107, 17)
+        Me.Label6.Size = New System.Drawing.Size(111, 17)
         Me.Label6.TabIndex = 1
         Me.Label6.Text = "_fechaCreacion:"
         '

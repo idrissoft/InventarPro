@@ -2,39 +2,44 @@
 
 
 Public Class Ventas
-    Dim Dventa As New Dventas
+    Dim Dventa As New Dventas()
+    Dim Nventas As New Nventas()
+    Dim Eventas As New Eventas()
+    Dim Edet_vent As New Edetalle_de_ventas()
+    Dim Epro As New Eproductos()
+    Dim Eclient As New Eclientes()
 
     Private Sub Ventas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         CenterToParent()
         DataGridView_ventas.DataSource = Dventa.Get_ventas
-        Dim func_cliente As New Dclientes
+        Dim Dcliente As New Dclientes
         CargarClientes()
         cargar_productos()
     End Sub
 
     Private Sub CargarClientes()
-        Dventa.GetConnection()
-        Dim query As String = "SELECT Nombre FROM Clientes"
-        Dim cmd As New SqlCommand(query, Dventa.GetConnection())
-        Dim reader As SqlDataReader = cmd.ExecuteReader()
+        Dim nombresClientes As List(Of String) = Nventas.ObtenerNombresClientes()
         ComboBox_clientes.Items.Clear()
-        While reader.Read()
-            ComboBox_clientes.Items.Add(reader("Nombre").ToString())
-        End While
-        reader.Close()
+        For Each nombre In nombresClientes
+            ComboBox_clientes.Items.Add(nombre)
+        Next
     End Sub
+
     Private Sub cargar_productos()
-        Dim query As String = "SELECT nombre FROM Productos"
-        Dim cmd As New SqlCommand(query, Dventa.GetConnection())
-        Dim reader As SqlDataReader = cmd.ExecuteReader()
+        Dim nombresproductos As List(Of String) = Nventas.ObtenerNombresProductos()
         Combo_productos.Items.Clear()
-        While reader.Read()
-            Combo_productos.Items.Add(reader("nombre").ToString())
-        End While
-        reader.Close()
+        For Each nombre In nombresproductos
+            Combo_productos.Items.Add(nombre)
+        Next
     End Sub
 
     Private Sub ComboBox_clientes_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox_clientes.SelectedIndexChanged
+
+        'Dim Eclient As New Eclientes()
+        'Txt_cliente.Text = Eclient.Idcliente.ToString()
+        'Txt_telefono.Text = Eclient.Telefono.ToString()
+        'Txt_direccion.Text = Eclient.Direccion.ToString()
+
         Dim Query As String = "SELECT ID_Cliente,telefono,direccion FROM clientes WHERE nombre = @nombre"
         Dim Cmd As New SqlCommand(Query, Dventa.GetConnection())
         Cmd.Parameters.AddWithValue("@nombre", ComboBox_clientes.Text)
@@ -73,26 +78,23 @@ Public Class Ventas
     End Sub
     '><><><><><><><><><
     Private Sub Btn_crear_venta_Click(sender As Object, e As EventArgs) Handles Btn_crear_venta.Click
-        Dim Vvent As New Eventas()
-        Dim Vdet_vent As New Edetalle_de_ventas()
-        Dim Vpro As New Eproductos
-        Dim Fvent As New Dventas()
-        If Txt_precio_total.Text <> "" Then
-            Vvent.Fecha_venta = DateTimePicker1.Value
-            Vvent.ID_cliente = CInt(Txt_cliente.Text)
-            Vvent.Total = CInt(Txt_precio_total.Text)
-            Vdet_vent.id_producto = CInt(Txt_id_productos.Text)
-            Vdet_vent.cantidad_ventas = CInt(txtcantidad.Value)
-            Vdet_vent.precio_unitario = CInt(Txt_PrecioUnitario.Text)
-            Vdet_vent.subtotal = CInt(Txt_precio_total.Text)
-            Vpro.Stock_Actual = CInt(Txt_stock_acual.Text)
 
-            Dim Stock_Actual As Integer = Vpro.Stock_Actual - Vdet_vent.cantidad_ventas
-            Dim ID_Producto As Integer = Vdet_vent.id_producto
+        If Txt_precio_total.Text <> "" Then
+            Eventas.Fecha_venta = DateTimePicker1.Value
+            Eventas.ID_cliente = CInt(Txt_cliente.Text)
+            Eventas.Total = CInt(Txt_precio_total.Text)
+            Edet_vent.Id_producto = CInt(Txt_id_productos.Text)
+            Edet_vent.Cantidad_ventas = CInt(txtcantidad.Value)
+            Edet_vent.Precio_unitario = CInt(Txt_PrecioUnitario.Text)
+            Edet_vent.Subtotal = CInt(Txt_precio_total.Text)
+            Epro.Stock_Actual = CInt(Txt_stock_acual.Text)
+
+            Dim Stock_Actual As Integer = Epro.Stock_Actual - Edet_vent.Cantidad_ventas
+            Dim ID_Producto As Integer = Edet_vent.Id_producto
             If Stock_Actual > 0 Then
 
-                Fvent.Add_venta(Vvent, Vdet_vent, Vpro)
-                Fvent.Acualisacion_stock(Vdet_vent, Vpro)
+                Dventa.Add_venta(Eventas, Edet_vent, Epro)
+                Dventa.Acualisacion_stock(Edet_vent, Epro)
             Else
 
                 MessageBox.Show("No hay suficiente stock para completar la operación.")
@@ -115,7 +117,7 @@ Public Class Ventas
             If e.RowIndex >= 0 Then
                 Dim selectedRow As DataGridViewRow
                 selectedRow = DataGridView_ventas.Rows(e.RowIndex)
-                Dim ID_Ventas As Integer = Convert.ToInt32(selectedRow.Cells("id_ventas").Value)
+                Dim ID_Ventas As Integer = Convert.ToInt32(selectedRow.Cells("Id_ventas").Value)
                 DataGridView_Detalle_Venta.DataSource = Dventa.Get_detalle_ventas(ID_Ventas)
             End If
         Catch ex As Exception

@@ -81,13 +81,13 @@
     <Compile Include="CAPA Datos\Dclientes.vb" />
     <Compile Include="CAPA Datos\Dproductos.vb" />
     <Compile Include="CAPA Datos\Dventas.vb" />
+    <Compile Include="CAPA ENTIDAD\Eclientes.vb" />
     <Compile Include="CAPA ENTIDAD\Edetalle_de_ventas.vb" />
-    <Compile Include="CAPA ENTIDAD\Eclientes.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="CAPA ENTIDAD\Eproductos.vb" />
     <Compile Include="CAPA ENTIDAD\Eventas.vb" />
+    <Compile Include="CPADA  de Negocios\Ncliente.vb" />
     <Compile Include="CPADA  de Negocios\Nproductos.vb" />
+    <Compile Include="CPADA  de Negocios\Nventas.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
