@@ -40,20 +40,20 @@ Public Class Ventas
         'Txt_telefono.Text = Eclient.Telefono.ToString()
         'Txt_direccion.Text = Eclient.Direccion.ToString()
 
-        Dim Query As String = "SELECT ID_Cliente,telefono,direccion FROM clientes WHERE nombre = @nombre"
-        Dim Cmd As New SqlCommand(Query, Dventa.GetConnection())
-        Cmd.Parameters.AddWithValue("@nombre", ComboBox_clientes.Text)
-        Dim reader As SqlDataReader = Cmd.ExecuteReader()
-        If reader.HasRows Then
-            reader.Read()
-            Dim ID_cliente As Integer = Convert.ToInt32(reader("ID_Cliente"))
-            Dim telefono As Decimal = Convert.ToDecimal(reader("telefono"))
-            Dim direccion As String = CStr(reader("direccion"))
-            Txt_cliente.Text = ID_cliente.ToString()
-            Txt_telefono.Text = telefono.ToString()
-            Txt_direccion.Text = direccion.ToString()
-            reader.Close()
-        End If
+        'Dim Query As String = "SELECT ID_Cliente,telefono,direccion FROM clientes WHERE nombre = @nombre"
+        'Dim Cmd As New SqlCommand(Query, Dventa.GetConnection())
+        'Cmd.Parameters.AddWithValue("@nombre", ComboBox_clientes.Text)
+        'Dim reader As SqlDataReader = Cmd.ExecuteReader()
+        'If reader.HasRows Then
+        '    reader.Read()
+        '    Dim ID_cliente As Integer = Convert.ToInt32(reader("ID_Cliente"))
+        '    Dim telefono As Decimal = Convert.ToDecimal(reader("telefono"))
+        '    Dim direccion As String = CStr(reader("direccion"))
+        '    Txt_cliente.Text = ID_cliente.ToString()
+        '    Txt_telefono.Text = telefono.ToString()
+        '    Txt_direccion.Text = direccion.ToString()
+        '    reader.Close()
+        'End If
     End Sub
 
     Private Sub Combo_productos_SelectedIndexChanged(sender As Object, e As EventArgs) Handles Combo_productos.SelectedIndexChanged
