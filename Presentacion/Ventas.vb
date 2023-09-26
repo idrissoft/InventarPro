@@ -7,7 +7,7 @@ Public Class Ventas
     Dim Eventas As New Eventas()
     Dim Edet_vent As New Edetalle_de_ventas()
     Dim Epro As New Eproductos()
-    Dim Eclient As New Eclientes()
+    'Dim Eclient As New Eclientes()
 
     Private Sub Ventas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         CenterToParent()

@@ -24,6 +24,10 @@ Partial Class Clientes
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Clientes))
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.multiplicar = New System.Windows.Forms.Button()
+        Me.Sumar = New System.Windows.Forms.Button()
+        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.DataGridView_clientes = New System.Windows.Forms.DataGridView()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.editar_productos = New System.Windows.Forms.Button()
@@ -45,6 +49,11 @@ Partial Class Clientes
         '
         'Panel1
         '
+        Me.Panel1.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.Panel1.Controls.Add(Me.multiplicar)
+        Me.Panel1.Controls.Add(Me.Sumar)
+        Me.Panel1.Controls.Add(Me.TextBox2)
+        Me.Panel1.Controls.Add(Me.TextBox1)
         Me.Panel1.Controls.Add(Me.DataGridView_clientes)
         Me.Panel1.Controls.Add(Me.Panel2)
         Me.Panel1.Controls.Add(Me.Panel3)
@@ -53,6 +62,40 @@ Partial Class Clientes
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(2160, 1202)
         Me.Panel1.TabIndex = 0
+        '
+        'multiplicar
+        '
+        Me.multiplicar.Location = New System.Drawing.Point(1152, 864)
+        Me.multiplicar.Name = "multiplicar"
+        Me.multiplicar.Size = New System.Drawing.Size(89, 23)
+        Me.multiplicar.TabIndex = 8
+        Me.multiplicar.Text = "multiplicar"
+        Me.multiplicar.UseVisualStyleBackColor = True
+        '
+        'Sumar
+        '
+        Me.Sumar.Location = New System.Drawing.Point(1263, 864)
+        Me.Sumar.Name = "Sumar"
+        Me.Sumar.Size = New System.Drawing.Size(75, 23)
+        Me.Sumar.TabIndex = 7
+        Me.Sumar.Text = "Sumar"
+        Me.Sumar.UseVisualStyleBackColor = True
+        '
+        'TextBox2
+        '
+        Me.TextBox2.Location = New System.Drawing.Point(796, 922)
+        Me.TextBox2.Name = "TextBox2"
+        Me.TextBox2.Size = New System.Drawing.Size(552, 22)
+        Me.TextBox2.TabIndex = 6
+        '
+        'TextBox1
+        '
+        Me.TextBox1.AcceptsReturn = True
+        Me.TextBox1.Location = New System.Drawing.Point(796, 640)
+        Me.TextBox1.Multiline = True
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(542, 188)
+        Me.TextBox1.TabIndex = 5
         '
         'DataGridView_clientes
         '
@@ -201,6 +244,7 @@ Partial Class Clientes
         Me.Name = "Clientes"
         Me.Text = "Clietes"
         Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
         CType(Me.DataGridView_clientes, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
         Me.Panel3.ResumeLayout(False)
@@ -224,4 +268,8 @@ Partial Class Clientes
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents DataGridView_clientes As DataGridView
     Friend WithEvents Label1 As Label
+    Friend WithEvents multiplicar As Button
+    Friend WithEvents Sumar As Button
+    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents TextBox1 As TextBox
 End Class

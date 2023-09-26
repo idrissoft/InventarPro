@@ -5,7 +5,7 @@ Public MustInherit Class Conection
     Private _connection As New SqlConnection
     Friend Function GetConnection() As SqlConnection
         Try
-            _connection = New SqlConnection("server=MBWS093\SQLEXPRESS; database=InventarPro; integrated security=true")
+            _connection = New SqlConnection("server=DESKTOP-N0AAU33\SQLEXPRESS; database=InventarPro; integrated security=true")
             _connection.Open()
             Return _connection
         Catch ex As Exception
